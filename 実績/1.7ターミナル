@@ -1,0 +1,1167 @@
+C:\Users\tsryu\Desktop\AI-EA-Advanced\main_genai_custom.py:449: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.datetime.utcnow()
+2026-01-07 11:13:48,062 - INFO - Env: XAUJPY | Pos=0.27 | Slope=-13.11364 | RSI=44.2 | ADX=27.3 | ATR=546.14286 | Session=Tokyo
+INFO:     127.0.0.1:53439 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:14:59,405 - INFO - Env: XAUJPY | Pos=0.23 | Slope=-13.89833 | RSI=50.2 | ADX=25.4 | ATR=481.28571 | Session=Tokyo
+INFO:     127.0.0.1:52431 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52432 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52433 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58641 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55111 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55112 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:19:59,548 - INFO - Env: XAUJPY | Pos=0.19 | Slope=-14.74355 | RSI=51.8 | ADX=23.5 | ATR=466.57143 | Session=Tokyo
+INFO:     127.0.0.1:55113 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62042 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51242 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:24:59,676 - INFO - Env: XAUJPY | Pos=0.16 | Slope=-15.60372 | RSI=48.2 | ADX=22.1 | ATR=452.71429 | Session=Tokyo
+INFO:     127.0.0.1:51243 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51244 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51245 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:29:59,398 - INFO - Env: XAUJPY | Pos=0.30 | Slope=-16.04930 | RSI=48.1 | ADX=20.8 | ATR=451.00000 | Session=Tokyo
+INFO:     127.0.0.1:62903 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62904 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62905 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62906 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:34:59,431 - INFO - Env: XAUJPY | Pos=0.33 | Slope=-16.35795 | RSI=48.5 | ADX=19.6 | ATR=455.07143 | Session=Tokyo
+INFO:     127.0.0.1:61115 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61116 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61117 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61118 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:39:59,399 - INFO - Env: XAUJPY | Pos=0.39 | Slope=-16.49989 | RSI=66.8 | ADX=17.5 | ATR=359.42857 | Session=Tokyo
+INFO:     127.0.0.1:56331 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56332 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56333 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56334 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:44:59,335 - INFO - Env: XAUJPY | Pos=0.33 | Slope=-16.76891 | RSI=60.7 | ADX=15.5 | ATR=354.78571 | Session=Tokyo
+INFO:     127.0.0.1:55888 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59509 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59511 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59510 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:49:59,456 - INFO - Env: XAUJPY | Pos=0.39 | Slope=-16.87438 | RSI=65.2 | ADX=13.7 | ATR=361.21429 | Session=Tokyo
+INFO:     127.0.0.1:59610 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59611 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61705 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64854 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:54:59,397 - INFO - Env: XAUJPY | Pos=0.43 | Slope=-16.87205 | RSI=72.2 | ADX=11.9 | ATR=345.14286 | Session=Tokyo
+INFO:     127.0.0.1:58896 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58895 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58897 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58898 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 11:59:59,336 - INFO - Env: XAUJPY | Pos=0.26 | Slope=-17.62621 | RSI=57.3 | ADX=10.6 | ATR=367.00000 | Session=Tokyo
+INFO:     127.0.0.1:53744 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53746 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53745 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53747 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63876 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:04:59,353 - INFO - Env: XAUJPY | Pos=0.26 | Slope=-18.22039 | RSI=63.7 | ADX=9.0 | ATR=331.71429 | Session=Tokyo
+INFO:     127.0.0.1:63877 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63878 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63879 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:09:59,326 - INFO - Env: XAUJPY | Pos=0.27 | Slope=-18.69247 | RSI=63.6 | ADX=7.4 | ATR=331.35714 | Session=Tokyo
+INFO:     127.0.0.1:64742 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64744 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64743 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64745 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:14:59,320 - INFO - Env: XAUJPY | Pos=0.25 | Slope=-19.21328 | RSI=57.9 | ADX=6.5 | ATR=301.28571 | Session=Tokyo
+INFO:     127.0.0.1:52886 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52887 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52888 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52889 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:19:59,353 - INFO - Env: XAUJPY | Pos=0.40 | Slope=-19.37387 | RSI=57.7 | ADX=6.6 | ATR=299.57143 | Session=Tokyo
+INFO:     127.0.0.1:51648 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51649 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59509 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59508 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:24:59,395 - INFO - Env: XAUJPY | Pos=0.37 | Slope=-19.62583 | RSI=58.5 | ADX=6.3 | ATR=295.28571 | Session=Tokyo
+INFO:     127.0.0.1:56237 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62758 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62757 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62762 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:29:59,284 - INFO - Env: XAUJPY | Pos=0.26 | Slope=-20.09122 | RSI=53.9 | ADX=5.9 | ATR=320.42857 | Session=Tokyo
+INFO:     127.0.0.1:60406 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60407 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60408 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60409 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:34:59,312 - INFO - Env: XAUJPY | Pos=0.21 | Slope=-20.71867 | RSI=52.7 | ADX=5.7 | ATR=327.57143 | Session=Tokyo
+INFO:     127.0.0.1:62435 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62437 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62439 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62438 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:39:59,295 - INFO - Env: XAUJPY | Pos=0.24 | Slope=-21.10387 | RSI=46.7 | ADX=6.1 | ATR=290.28571 | Session=Tokyo
+INFO:     127.0.0.1:61171 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60528 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65430 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65429 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61494 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:45:00,222 - INFO - Env: XAUJPY | Pos=0.30 | Slope=-21.53798 | RSI=47.9 | ADX=6.1 | ATR=297.14286 | Session=Tokyo
+INFO:     127.0.0.1:61495 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61496 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54775 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60776 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:50:01,078 - INFO - Env: XAUJPY | Pos=0.23 | Slope=-22.36196 | RSI=40.5 | ADX=6.2 | ATR=303.28571 | Session=Tokyo
+INFO:     127.0.0.1:60777 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60778 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:54:59,296 - INFO - Env: XAUJPY | Pos=0.22 | Slope=-23.01229 | RSI=43.1 | ADX=6.8 | ATR=284.78571 | Session=Tokyo
+INFO:     127.0.0.1:58486 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58485 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61507 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61508 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 12:59:59,196 - INFO - Env: XAUJPY | Pos=0.19 | Slope=-23.44413 | RSI=36.9 | ADX=7.4 | ATR=278.64286 | Session=Tokyo
+INFO:     127.0.0.1:62408 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62409 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62411 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62412 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:04:59,339 - INFO - Env: XAUJPY | Pos=0.11 | Slope=-24.12903 | RSI=30.4 | ADX=8.2 | ATR=293.07143 | Session=Tokyo
+INFO:     127.0.0.1:61113 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61114 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61115 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61667 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:09:59,341 - INFO - Env: XAUJPY | Pos=0.06 | Slope=-24.91543 | RSI=36.0 | ADX=9.4 | ATR=247.78571 | Session=Tokyo
+INFO:     127.0.0.1:51489 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51490 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51491 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57558 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49270 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49269 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:14:59,458 - INFO - Env: XAUJPY | Pos=0.04 | Slope=-25.65028 | RSI=34.8 | ADX=10.8 | ATR=253.64286 | Session=Tokyo
+INFO:     127.0.0.1:49271 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49272 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53434 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53435 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:19:59,550 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-26.38816 | RSI=31.9 | ADX=12.6 | ATR=268.71429 | Session=Tokyo
+INFO:     127.0.0.1:49374 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49375 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:24:59,409 - INFO - Env: XAUJPY | Pos=0.01 | Slope=-27.12497 | RSI=33.6 | ADX=14.1 | ATR=265.92857 | Session=Tokyo
+INFO:     127.0.0.1:61805 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61806 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61807 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64111 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:29:59,236 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-28.09820 | RSI=14.5 | ADX=16.0 | ATR=237.14286 | Session=Tokyo
+INFO:     127.0.0.1:64022 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64024 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64023 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64025 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:34:59,670 - INFO - Env: XAUJPY | Pos=0.05 | Slope=-29.09462 | RSI=21.7 | ADX=17.6 | ATR=243.78571 | Session=Tokyo
+INFO:     127.0.0.1:62034 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53481 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50586 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50587 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51997 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51998 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:39:59,897 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-30.50983 | RSI=21.0 | ADX=19.9 | ATR=252.28571 | Session=Tokyo
+INFO:     127.0.0.1:51999 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:44:59,194 - INFO - Env: XAUJPY | Pos=0.02 | Slope=-31.71495 | RSI=24.9 | ADX=21.6 | ATR=243.85714 | Session=Tokyo
+INFO:     127.0.0.1:52487 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52488 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52490 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52489 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:49:59,649 - INFO - Env: XAUJPY | Pos=0.06 | Slope=-32.74689 | RSI=26.9 | ADX=22.9 | ATR=250.28571 | Session=Tokyo
+INFO:     127.0.0.1:49278 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52178 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63006 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63005 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59339 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59340 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55615 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:55:00,643 - INFO - Env: XAUJPY | Pos=0.01 | Slope=-33.64842 | RSI=18.7 | ADX=25.1 | ATR=248.00000 | Session=Tokyo
+INFO:     127.0.0.1:55616 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51267 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 13:59:59,143 - INFO - Env: XAUJPY | Pos=0.01 | Slope=-34.60043 | RSI=20.7 | ADX=26.8 | ATR=224.14286 | Session=Tokyo
+INFO:     127.0.0.1:51268 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51269 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:04:59,377 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-35.73877 | RSI=17.6 | ADX=29.1 | ATR=263.57143 | Session=Tokyo
+INFO:     127.0.0.1:49574 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49575 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49576 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49577 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:09:59,103 - INFO - Env: XAUJPY | Pos=0.08 | Slope=-36.78828 | RSI=28.9 | ADX=29.9 | ATR=286.00000 | Session=Tokyo
+INFO:     127.0.0.1:53126 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53127 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53128 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53129 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:14:59,112 - INFO - Env: XAUJPY | Pos=0.07 | Slope=-38.01579 | RSI=31.5 | ADX=30.3 | ATR=262.71429 | Session=Tokyo
+INFO:     127.0.0.1:64519 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64520 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64521 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64522 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:19:59,145 - INFO - Env: XAUJPY | Pos=0.13 | Slope=-39.16845 | RSI=40.4 | ADX=29.6 | ATR=275.71429 | Session=Tokyo
+INFO:     127.0.0.1:57067 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57068 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57070 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57069 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:24:59,076 - INFO - Env: XAUJPY | Pos=0.13 | Slope=-40.33102 | RSI=41.2 | ADX=28.7 | ATR=269.92857 | Session=Tokyo
+INFO:     127.0.0.1:62898 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62899 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50844 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50846 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:29:59,080 - INFO - Env: XAUJPY | Pos=0.10 | Slope=-41.60123 | RSI=41.6 | ADX=27.9 | ATR=267.42857 | Session=Tokyo
+INFO:     127.0.0.1:59293 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59294 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59295 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59296 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62774 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62775 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62776 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:34:59,421 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-44.06758 | RSI=25.0 | ADX=29.4 | ATR=430.28571 | Session=Tokyo
+INFO:     127.0.0.1:62777 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:39:59,175 - INFO - Env: XAUJPY | Pos=0.01 | Slope=-46.62116 | RSI=27.5 | ADX=30.5 | ATR=408.85714 | Session=Tokyo
+INFO:     127.0.0.1:49204 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49203 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49205 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49206 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58325 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:44:59,118 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-49.01188 | RSI=23.0 | ADX=32.3 | ATR=409.35714 | Session=Tokyo
+INFO:     127.0.0.1:58326 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58327 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58328 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:49:59,224 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-51.74710 | RSI=22.7 | ADX=33.7 | ATR=413.64286 | Session=Tokyo
+INFO:     127.0.0.1:49701 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49702 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49703 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49704 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49503 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:54:59,039 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-54.38934 | RSI=20.9 | ADX=35.4 | ATR=411.57143 | Session=Tokyo
+INFO:     127.0.0.1:49504 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49505 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49506 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52555 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 14:59:59,040 - INFO - Env: XAUJPY | Pos=0.11 | Slope=-56.63610 | RSI=29.7 | ADX=35.9 | ATR=463.21429 | Session=Tokyo
+INFO:     127.0.0.1:52556 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52557 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52558 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:04:58,991 - INFO - Env: XAUJPY | Pos=0.14 | Slope=-58.78973 | RSI=34.2 | ADX=35.5 | ATR=466.14286 | Session=Tokyo
+INFO:     127.0.0.1:57327 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57328 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57330 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57329 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:09:59,008 - INFO - Env: XAUJPY | Pos=0.16 | Slope=-60.67716 | RSI=36.1 | ADX=34.9 | ATR=478.00000 | Session=Tokyo
+INFO:     127.0.0.1:64213 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64214 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64216 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64215 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53706 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53707 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:14:59,050 - INFO - Env: XAUJPY | Pos=0.12 | Slope=-62.69998 | RSI=37.2 | ADX=33.9 | ATR=464.14286 | Session=Tokyo
+INFO:     127.0.0.1:53708 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53709 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:19:58,991 - INFO - Env: XAUJPY | Pos=0.18 | Slope=-64.26090 | RSI=38.0 | ADX=33.1 | ATR=470.21429 | Session=Tokyo
+INFO:     127.0.0.1:60439 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60440 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60442 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60441 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:24:59,054 - INFO - Env: XAUJPY | Pos=0.10 | Slope=-65.99171 | RSI=34.6 | ADX=33.0 | ATR=517.35714 | Session=Tokyo
+INFO:     127.0.0.1:55308 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55309 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55310 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55311 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53539 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53540 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:29:59,075 - INFO - Env: XAUJPY | Pos=0.08 | Slope=-67.81943 | RSI=29.8 | ADX=34.0 | ATR=503.50000 | Session=Tokyo
+INFO:     127.0.0.1:53541 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53542 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:34:58,931 - INFO - Env: XAUJPY | Pos=0.03 | Slope=-69.90069 | RSI=28.0 | ADX=35.3 | ATR=537.21429 | Session=Tokyo
+INFO:     127.0.0.1:55557 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55558 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55560 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55559 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:39:59,015 - INFO - Env: XAUJPY | Pos=0.01 | Slope=-72.02895 | RSI=28.1 | ADX=36.5 | ATR=535.21429 | Session=Tokyo
+INFO:     127.0.0.1:57557 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57558 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57560 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57561 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:44:59,005 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-74.25709 | RSI=37.6 | ADX=35.8 | ATR=400.00000 | Session=Tokyo
+INFO:     127.0.0.1:57973 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57976 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57977 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57975 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:49:59,019 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-76.20662 | RSI=36.4 | ADX=35.2 | ATR=400.85714 | Session=Tokyo
+INFO:     127.0.0.1:52444 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52445 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52447 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52446 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:54:58,920 - INFO - Env: XAUJPY | Pos=0.01 | Slope=-78.06167 | RSI=38.8 | ADX=34.3 | ATR=385.92857 | Session=Tokyo
+INFO:     127.0.0.1:63677 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63678 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63679 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63680 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 15:59:58,915 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-80.00307 | RSI=41.1 | ADX=33.4 | ATR=364.00000 | Session=Tokyo
+INFO:     127.0.0.1:51664 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51665 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51666 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51667 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:04:58,964 - INFO - Env: XAUJPY | Pos=0.04 | Slope=-81.27248 | RSI=46.2 | ADX=31.5 | ATR=387.85714 | Session=Tokyo
+INFO:     127.0.0.1:63401 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63403 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63405 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63404 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:09:58,925 - INFO - Env: XAUJPY | Pos=0.07 | Slope=-82.38821 | RSI=38.5 | ADX=31.0 | ATR=339.21429 | Session=Tokyo
+INFO:     127.0.0.1:64750 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64751 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64752 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64753 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58140 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:14:58,895 - INFO - Env: XAUJPY | Pos=0.11 | Slope=-83.16101 | RSI=39.5 | ADX=30.3 | ATR=344.50000 | Session=Tokyo
+INFO:     127.0.0.1:58141 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58142 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58143 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:19:58,897 - INFO - Env: XAUJPY | Pos=0.13 | Slope=-83.96069 | RSI=39.2 | ADX=29.6 | ATR=343.00000 | Session=Tokyo
+INFO:     127.0.0.1:49867 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49868 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49869 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49870 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:24:58,879 - INFO - Env: XAUJPY | Pos=0.15 | Slope=-84.52240 | RSI=46.1 | ADX=28.1 | ATR=336.50000 | Session=Tokyo
+INFO:     127.0.0.1:56190 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56193 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56191 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56192 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:29:58,875 - INFO - Env: XAUJPY | Pos=0.21 | Slope=-84.69109 | RSI=45.8 | ADX=27.5 | ATR=334.50000 | Session=Tokyo
+INFO:     127.0.0.1:49302 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49303 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49304 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49305 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49800 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49799 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49801 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:34:59,486 - INFO - Env: XAUJPY | Pos=0.23 | Slope=-84.58629 | RSI=55.8 | ADX=26.4 | ATR=293.14286 | Session=Tokyo
+INFO:     127.0.0.1:49802 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53973 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53972 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53971 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:39:59,059 - INFO - Env: XAUJPY | Pos=0.29 | Slope=-84.01746 | RSI=64.5 | ADX=25.9 | ATR=323.14286 | Session=Tokyo
+INFO:     127.0.0.1:53974 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54464 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54465 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54466 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:44:59,027 - INFO - Env: XAUJPY | Pos=0.25 | Slope=-83.49014 | RSI=66.5 | ADX=24.3 | ATR=313.64286 | Session=Tokyo
+INFO:     127.0.0.1:54467 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:49:59,170 - INFO - Env: XAUJPY | Pos=0.32 | Slope=-82.63346 | RSI=73.4 | ADX=23.4 | ATR=346.42857 | Session=Tokyo
+INFO:     127.0.0.1:55579 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55582 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55581 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55580 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:54:58,833 - INFO - Env: XAUJPY | Pos=0.37 | Slope=-81.33559 | RSI=82.6 | ADX=22.6 | ATR=350.21429 | Session=Tokyo
+INFO:     127.0.0.1:55774 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55775 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55776 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55777 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62147 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 16:59:58,871 - INFO - Env: XAUJPY | Pos=0.33 | Slope=-80.36564 | RSI=77.7 | ADX=21.1 | ATR=372.00000 | Session=Tokyo
+INFO:     127.0.0.1:62148 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62149 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:04:58,813 - INFO - Env: XAUJPY | Pos=0.38 | Slope=-79.13978 | RSI=79.5 | ADX=20.3 | ATR=405.07143 | Session=Tokyo
+INFO:     127.0.0.1:59362 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59363 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59364 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59365 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52462 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52461 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52463 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:09:59,035 - INFO - Env: XAUJPY | Pos=0.41 | Slope=-77.49073 | RSI=86.7 | ADX=19.3 | ATR=393.64286 | Session=Tokyo
+INFO:     127.0.0.1:52465 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51617 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51616 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51618 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:14:59,215 - INFO - Env: XAUJPY | Pos=0.41 | Slope=-75.83672 | RSI=85.7 | ADX=19.2 | ATR=366.28571 | Session=Tokyo
+INFO:     127.0.0.1:51619 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52604 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52603 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52605 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:19:59,331 - INFO - Env: XAUJPY | Pos=0.41 | Slope=-74.15074 | RSI=84.7 | ADX=19.6 | ATR=347.64286 | Session=Tokyo
+INFO:     127.0.0.1:52606 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49579 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49580 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:24:58,821 - INFO - Env: XAUJPY | Pos=0.43 | Slope=-72.19234 | RSI=84.0 | ADX=20.8 | ATR=333.35714 | Session=Tokyo
+INFO:     127.0.0.1:49581 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49582 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58753 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58754 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:29:58,819 - INFO - Env: XAUJPY | Pos=0.42 | Slope=-70.19026 | RSI=81.4 | ADX=22.1 | ATR=329.00000 | Session=Tokyo
+INFO:     127.0.0.1:58755 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:34:58,790 - INFO - Env: XAUJPY | Pos=0.46 | Slope=-68.02048 | RSI=81.8 | ADX=24.3 | ATR=335.50000 | Session=Tokyo
+INFO:     127.0.0.1:53433 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53434 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53436 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53435 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:39:58,818 - INFO - Env: XAUJPY | Pos=0.55 | Slope=-65.41093 | RSI=82.3 | ADX=27.1 | ATR=345.78571 | Session=Tokyo
+2026-01-07 17:39:58,821 - INFO - ✅ v10 SELL: Slope=-65.41093 Pos=0.55 RSI=82
+2026-01-07 17:39:58,822 - INFO - ✅ v10.0 Entry: SELL | ADX=27.1 | SL=700659.67857 | TP=699449.42857
+INFO:     127.0.0.1:50598 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50600 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50599 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:39:59,053 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+INFO:     127.0.0.1:50601 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:42:17,807 - WARNING - ⚠️ XAUJPY: Loss #1
+2026-01-07 17:42:17,808 - WARNING - ⚠️ XAUJPY: Loss #2
+INFO:     127.0.0.1:57849 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 17:42:17,808 - WARNING - ⚠️ XAUJPY: Loss #3
+2026-01-07 17:42:17,811 - WARNING - ⚠️ XAUJPY: Loss #4
+INFO:     127.0.0.1:57851 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57852 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57853 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 17:44:58,723 - INFO - 🛑 XAUJPY: Cooldown (12min left)
+INFO:     127.0.0.1:50255 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50256 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50257 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50258 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59630 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59632 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59631 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:49:58,779 - INFO - 🛑 XAUJPY: Cooldown (7min left)
+INFO:     127.0.0.1:59633 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50489 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50490 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50491 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:54:58,821 - INFO - 🛑 XAUJPY: Cooldown (2min left)
+INFO:     127.0.0.1:50492 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 17:59:58,752 - INFO - Env: XAUJPY | Pos=0.48 | Slope=-63.20622 | RSI=71.9 | ADX=28.5 | ATR=381.35714 | Session=Tokyo
+INFO:     127.0.0.1:54181 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54183 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54179 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54182 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50444 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50445 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50446 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:04:58,954 - INFO - Env: XAUJPY | Pos=0.44 | Slope=-61.26813 | RSI=63.1 | ADX=28.3 | ATR=363.57143 | Session=London
+INFO:     127.0.0.1:50447 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:09:58,714 - INFO - Env: XAUJPY | Pos=0.38 | Slope=-59.79344 | RSI=59.8 | ADX=27.8 | ATR=383.35714 | Session=London
+INFO:     127.0.0.1:57597 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57598 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57596 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57599 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63750 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:14:58,695 - INFO - Env: XAUJPY | Pos=0.45 | Slope=-57.67027 | RSI=60.0 | ADX=27.3 | ATR=384.85714 | Session=London
+INFO:     127.0.0.1:63751 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63753 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63752 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64828 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:19:58,735 - INFO - Env: XAUJPY | Pos=0.48 | Slope=-55.63729 | RSI=57.9 | ADX=26.6 | ATR=365.85714 | Session=London
+INFO:     127.0.0.1:64830 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64831 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64829 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:24:58,834 - INFO - Env: XAUJPY | Pos=0.42 | Slope=-53.66943 | RSI=56.0 | ADX=25.6 | ATR=378.28571 | Session=London
+INFO:     127.0.0.1:62279 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64511 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65412 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57972 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:29:58,667 - INFO - Env: XAUJPY | Pos=0.36 | Slope=-51.96991 | RSI=46.0 | ADX=23.9 | ATR=380.35714 | Session=London
+INFO:     127.0.0.1:53434 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53435 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53436 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53437 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:34:58,660 - INFO - Env: XAUJPY | Pos=0.39 | Slope=-50.08751 | RSI=44.7 | ADX=21.7 | ATR=371.57143 | Session=London
+INFO:     127.0.0.1:51046 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51045 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51047 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51048 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55553 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55555 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55554 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:39:58,866 - INFO - Env: XAUJPY | Pos=0.39 | Slope=-48.49249 | RSI=44.9 | ADX=19.5 | ATR=372.71429 | Session=London
+INFO:     127.0.0.1:55556 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50265 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:44:58,667 - INFO - Env: XAUJPY | Pos=0.36 | Slope=-46.89389 | RSI=42.5 | ADX=17.6 | ATR=393.64286 | Session=London
+INFO:     127.0.0.1:50266 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50267 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50268 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:49:58,630 - INFO - Env: XAUJPY | Pos=0.40 | Slope=-45.05225 | RSI=44.8 | ADX=15.4 | ATR=410.35714 | Session=London
+INFO:     127.0.0.1:54075 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54076 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54077 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54078 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:54:58,632 - INFO - Env: XAUJPY | Pos=0.45 | Slope=-42.88725 | RSI=48.4 | ADX=13.9 | ATR=423.35714 | Session=London
+INFO:     127.0.0.1:64075 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64076 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64078 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64077 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 18:59:58,666 - INFO - Env: XAUJPY | Pos=0.40 | Slope=-41.48251 | RSI=41.6 | ADX=11.3 | ATR=426.85714 | Session=London
+INFO:     127.0.0.1:62412 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62413 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62414 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62415 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60825 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60827 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60826 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:04:59,556 - INFO - Env: XAUJPY | Pos=0.43 | Slope=-39.84461 | RSI=36.6 | ADX=8.3 | ATR=393.50000 | Session=London
+INFO:     127.0.0.1:60828 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:09:58,695 - INFO - Env: XAUJPY | Pos=0.40 | Slope=-38.17016 | RSI=39.5 | ADX=6.5 | ATR=364.92857 | Session=London
+INFO:     127.0.0.1:57791 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57794 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57792 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61104 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61105 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61106 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:14:58,840 - INFO - Env: XAUJPY | Pos=0.43 | Slope=-36.73044 | RSI=45.5 | ADX=5.5 | ATR=355.42857 | Session=London
+INFO:     127.0.0.1:61107 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51965 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51966 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:20:00,728 - INFO - Env: XAUJPY | Pos=0.55 | Slope=-34.56223 | RSI=53.8 | ADX=5.7 | ATR=321.78571 | Session=London
+2026-01-07 19:20:00,728 - INFO - ✅ v10 SELL: Slope=-34.56223 Pos=0.55 RSI=54
+2026-01-07 19:20:00,728 - INFO - ✅ v10.0 Entry: SELL | ADX=5.7 | SL=699309.67857 | TP=698183.42857
+INFO:     127.0.0.1:51967 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:20:01,610 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+INFO:     127.0.0.1:50234 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:24:58,729 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:24:58,730 - INFO - Env: XAUJPY | Pos=0.54 | Slope=-33.21260 | RSI=44.4 | ADX=4.9 | ATR=283.28571 | Session=London
+2026-01-07 19:24:58,730 - INFO - 📉 v10: XAUJPY: ADX=4.9 < 5 → 弱トレンド、見送り
+INFO:     127.0.0.1:63570 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:24:59,598 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:24:59,599 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:63572 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63571 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:24:59,770 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+INFO:     127.0.0.1:63573 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58400 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58401 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58399 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58402 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 19:29:58,635 - INFO - Env: XAUJPY | Pos=0.44 | Slope=-32.74618 | RSI=34.6 | ADX=4.4 | ATR=317.71429 | Session=London
+2026-01-07 19:29:58,636 - INFO - 📉 v10: XAUJPY: ADX=4.4 < 5 → 弱トレンド、見送り
+INFO:     127.0.0.1:57166 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:29:58,671 - INFO - Env: EURJPY | Pos=0.40 | Slope=-0.00480 | RSI=60.3 | ADX=9.7 | ATR=0.02486 | Session=London
+2026-01-07 19:29:58,671 - INFO - 📉 v10: EURJPY: ADX=9.7 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:57167 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:30:03,364 - INFO - Env: USDJPY | Pos=0.44 | Slope=-0.00167 | RSI=38.2 | ADX=6.2 | ATR=0.02021 | Session=London
+2026-01-07 19:30:03,364 - INFO - 📉 v10: USDJPY: ADX=6.2 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:60766 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60767 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:34:58,573 - INFO - Env: XAUJPY | Pos=0.54 | Slope=-32.14014 | RSI=48.1 | ADX=4.1 | ATR=324.28571 | Session=London
+2026-01-07 19:34:58,574 - INFO - 📉 v10: XAUJPY: ADX=4.1 < 5 → 弱トレンド、見送り
+INFO:     127.0.0.1:49735 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:34:58,653 - INFO - Env: EURJPY | Pos=0.42 | Slope=-0.00465 | RSI=66.9 | ADX=11.8 | ATR=0.02393 | Session=London
+INFO:     127.0.0.1:49736 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:34:58,905 - INFO - Env: USDJPY | Pos=0.47 | Slope=-0.00163 | RSI=46.1 | ADX=6.0 | ATR=0.01829 | Session=London
+2026-01-07 19:34:58,905 - INFO - 📉 v10: USDJPY: ADX=6.0 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49737 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49738 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:39:58,799 - INFO - Env: EURJPY | Pos=0.36 | Slope=-0.00453 | RSI=66.9 | ADX=12.6 | ATR=0.02393 | Session=London
+INFO:     127.0.0.1:55847 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:39:58,898 - INFO - Env: USDJPY | Pos=0.37 | Slope=-0.00160 | RSI=46.1 | ADX=6.2 | ATR=0.01829 | Session=London
+2026-01-07 19:39:58,898 - INFO - 📉 v10: USDJPY: ADX=6.2 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:55849 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55848 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:39:59,148 - INFO - Env: XAUJPY | Pos=0.53 | Slope=-31.35761 | RSI=54.7 | ADX=4.1 | ATR=285.42857 | Session=London
+2026-01-07 19:39:59,148 - INFO - 📉 v10: XAUJPY: ADX=4.1 < 5 → 弱トレンド、見送り
+INFO:     127.0.0.1:55850 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:44:58,735 - INFO - Env: XAUJPY | Pos=0.57 | Slope=-30.07539 | RSI=56.1 | ADX=4.7 | ATR=295.00000 | Session=London
+2026-01-07 19:44:58,736 - INFO - 📉 v10: XAUJPY: ADX=4.7 < 5 → 弱トレンド、見送り
+INFO:     127.0.0.1:58175 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:44:59,808 - INFO - Env: EURJPY | Pos=0.34 | Slope=-0.00442 | RSI=70.9 | ADX=12.5 | ATR=0.02257 | Session=London
+2026-01-07 19:44:59,808 - INFO - Env: USDJPY | Pos=0.41 | Slope=-0.00157 | RSI=51.1 | ADX=5.8 | ATR=0.01886 | Session=London
+2026-01-07 19:44:59,809 - INFO - 📉 v10: USDJPY: ADX=5.8 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:63044 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63042 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63043 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:49:58,537 - INFO - Env: XAUJPY | Pos=0.59 | Slope=-28.66329 | RSI=56.4 | ADX=5.4 | ATR=296.92857 | Session=London
+2026-01-07 19:49:58,538 - INFO - ✅ v10 SELL: Slope=-28.66329 Pos=0.59 RSI=56
+2026-01-07 19:49:58,538 - INFO - ✅ v10.0 Entry: SELL | ADX=5.4 | SL=699441.39286 | TP=698402.14286
+INFO:     127.0.0.1:49383 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:49:58,687 - INFO - Env: EURJPY | Pos=0.36 | Slope=-0.00431 | RSI=67.3 | ADX=13.4 | ATR=0.02007 | Session=London
+INFO:     127.0.0.1:49384 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:50:00,694 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:49385 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:50:01,739 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:50:01,739 - INFO - Env: USDJPY | Pos=0.42 | Slope=-0.00153 | RSI=49.0 | ADX=5.6 | ATR=0.01807 | Session=London
+2026-01-07 19:50:01,740 - INFO - 📉 v10: USDJPY: ADX=5.6 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49386 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:54:58,506 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:54:58,507 - INFO - Env: XAUJPY | Pos=0.55 | Slope=-28.14732 | RSI=57.4 | ADX=5.4 | ATR=291.57143 | Session=London
+2026-01-07 19:54:58,508 - INFO - ✅ v10 SELL: Slope=-28.14732 Pos=0.55 RSI=57
+2026-01-07 19:54:58,508 - INFO - ✅ v10.0 Entry: SELL | ADX=5.4 | SL=699202.35714 | TP=698181.85714
+INFO:     127.0.0.1:60422 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:54:58,725 - INFO - 📍 USDJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:54:58,726 - INFO - Env: USDJPY | Pos=0.42 | Slope=-0.00150 | RSI=52.8 | ADX=5.0 | ATR=0.01679 | Session=London
+2026-01-07 19:54:58,726 - INFO - 📉 v10: USDJPY: ADX=5.0 < 10 → 弱トレンド、見送り
+2026-01-07 19:54:58,726 - INFO - 📍 EURJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:54:58,727 - INFO - Env: EURJPY | Pos=0.30 | Slope=-0.00422 | RSI=60.6 | ADX=13.3 | ATR=0.02229 | Session=London
+2026-01-07 19:54:58,727 - INFO - 📍 BTCJPY: 2 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:60424 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60425 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60423 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54006 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54005 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54007 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54008 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 19:59:58,496 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:59:58,496 - INFO - Env: XAUJPY | Pos=0.57 | Slope=-27.39402 | RSI=54.1 | ADX=5.7 | ATR=270.07143 | Session=London
+2026-01-07 19:59:58,497 - INFO - ✅ v10 SELL: Slope=-27.39402 Pos=0.57 RSI=54
+2026-01-07 19:59:58,497 - INFO - ✅ v10.0 Entry: SELL | ADX=5.7 | SL=699278.10714 | TP=698332.85714
+INFO:     127.0.0.1:60446 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:59:58,527 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:59:58,528 - INFO - Env: USDJPY | Pos=0.54 | Slope=-0.00144 | RSI=60.6 | ADX=5.4 | ATR=0.02014 | Session=London
+2026-01-07 19:59:58,528 - INFO - 📉 v10: USDJPY: ADX=5.4 < 10 → 弱トレンド、見送り
+2026-01-07 19:59:58,528 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:60447 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60448 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 19:59:58,615 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 19:59:58,615 - INFO - Env: EURJPY | Pos=0.37 | Slope=-0.00411 | RSI=64.3 | ADX=14.3 | ATR=0.02464 | Session=London
+INFO:     127.0.0.1:60449 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:04:58,478 - INFO - 📍 XAUJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:04:58,478 - INFO - 🚫 XAUJPY: MaxPos (2/2)
+INFO:     127.0.0.1:60926 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:04:59,307 - INFO - 📍 EURJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:04:59,307 - INFO - Env: EURJPY | Pos=0.39 | Slope=-0.00400 | RSI=66.9 | ADX=15.5 | ATR=0.02521 | Session=London
+2026-01-07 20:04:59,308 - INFO - 📍 BTCJPY: 2 positions | Config: HistSize=120, MaxPos=1
+2026-01-07 20:04:59,308 - INFO - 📍 USDJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:04:59,308 - INFO - Env: USDJPY | Pos=0.54 | Slope=-0.00139 | RSI=58.1 | ADX=6.5 | ATR=0.01893 | Session=London
+2026-01-07 20:04:59,309 - INFO - 📉 v10: USDJPY: ADX=6.5 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:60928 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60929 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60927 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64820 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64823 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64822 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64821 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 20:09:58,546 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:09:58,547 - INFO - Env: EURJPY | Pos=0.36 | Slope=-0.00390 | RSI=68.8 | ADX=15.6 | ATR=0.02450 | Session=London
+INFO:     127.0.0.1:64718 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:09:58,695 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:09:58,696 - INFO - Env: XAUJPY | Pos=0.55 | Slope=-26.79676 | RSI=48.2 | ADX=5.3 | ATR=260.07143 | Session=London
+2026-01-07 20:09:58,696 - INFO - ✅ v10 SELL: Slope=-26.79676 Pos=0.55 RSI=48
+2026-01-07 20:09:58,696 - INFO - ✅ v10.0 Entry: SELL | ADX=5.3 | SL=699113.10714 | TP=698202.85714
+INFO:     127.0.0.1:64720 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:10:02,051 - INFO - 📍 BTCJPY: 2 positions | Config: HistSize=120, MaxPos=1
+2026-01-07 20:10:02,051 - INFO - 📍 USDJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:10:02,052 - INFO - Env: USDJPY | Pos=0.61 | Slope=-0.00132 | RSI=68.2 | ADX=7.6 | ATR=0.01907 | Session=London
+2026-01-07 20:10:02,052 - INFO - 📉 v10: USDJPY: ADX=7.6 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:56285 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56286 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:14:58,503 - INFO - 📍 XAUJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:14:58,504 - INFO - 🚫 XAUJPY: MaxPos (2/2)
+INFO:     127.0.0.1:59099 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:15:00,858 - INFO - 📍 BTCJPY: 2 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:59100 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:15:01,002 - INFO - 📍 EURJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:15:01,002 - INFO - Env: EURJPY | Pos=0.38 | Slope=-0.00380 | RSI=63.2 | ADX=16.2 | ATR=0.02079 | Session=London
+INFO:     127.0.0.1:59101 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:15:11,781 - INFO - 📍 USDJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:15:11,781 - INFO - Env: USDJPY | Pos=0.54 | Slope=-0.00127 | RSI=56.3 | ADX=8.3 | ATR=0.01864 | Session=London
+2026-01-07 20:15:11,781 - INFO - 📉 v10: USDJPY: ADX=8.3 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:56551 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56882 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56879 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56881 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56882 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56881 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56879 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 20:19:58,590 - INFO - Env: EURJPY | Pos=0.46 | Slope=-0.00368 | RSI=70.1 | ADX=17.8 | ATR=0.02364 | Session=London
+INFO:     127.0.0.1:51261 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:19:58,713 - INFO - Env: XAUJPY | Pos=0.53 | Slope=-26.45966 | RSI=52.5 | ADX=5.3 | ATR=238.85714 | Session=London
+2026-01-07 20:19:58,713 - INFO - ✅ v10 SELL: Slope=-26.45966 Pos=0.53 RSI=52
+2026-01-07 20:19:58,714 - INFO - ✅ v10.0 Entry: SELL | ADX=5.3 | SL=698949.28571 | TP=698113.28571
+INFO:     127.0.0.1:51262 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:20:00,000 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:51263 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:20:10,137 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:20:10,137 - INFO - Env: USDJPY | Pos=0.51 | Slope=-0.00122 | RSI=61.8 | ADX=8.0 | ATR=0.01700 | Session=London
+2026-01-07 20:20:10,137 - INFO - 📉 v10: USDJPY: ADX=8.0 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:55836 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51584 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51583 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51582 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51581 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 20:24:58,575 - INFO - Env: EURJPY | Pos=0.51 | Slope=-0.00347 | RSI=71.2 | ADX=19.6 | ATR=0.02457 | Session=London
+2026-01-07 20:24:58,575 - INFO - ✅ v10 SELL: Slope=-0.00347 Pos=0.51 RSI=71
+2026-01-07 20:24:58,575 - INFO - ✅ v10.0 Entry: SELL | ADX=19.6 | SL=183.08186 | TP=182.99586
+INFO:     127.0.0.1:52628 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:24:58,659 - INFO - Env: XAUJPY | Pos=0.47 | Slope=-26.01787 | RSI=43.6 | ADX=5.7 | ATR=247.50000 | Session=London
+INFO:     127.0.0.1:52629 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:24:58,725 - INFO - Env: USDJPY | Pos=0.58 | Slope=-0.00111 | RSI=65.3 | ADX=8.6 | ATR=0.01871 | Session=London
+2026-01-07 20:24:58,725 - INFO - 📉 v10: USDJPY: ADX=8.6 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:52630 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:29:58,439 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:29:58,440 - INFO - Env: XAUJPY | Pos=0.46 | Slope=-25.84812 | RSI=45.9 | ADX=6.4 | ATR=235.28571 | Session=London
+INFO:     127.0.0.1:61019 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:29:58,519 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:29:58,520 - INFO - Env: EURJPY | Pos=0.47 | Slope=-0.00327 | RSI=61.3 | ADX=19.7 | ATR=0.02250 | Session=London
+INFO:     127.0.0.1:61020 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:29:58,630 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:29:58,631 - INFO - Env: USDJPY | Pos=0.59 | Slope=-0.00100 | RSI=62.1 | ADX=9.7 | ATR=0.01714 | Session=London
+2026-01-07 20:29:58,631 - INFO - 📉 v10: USDJPY: ADX=9.7 < 10 → 弱トレンド、見送り
+2026-01-07 20:29:58,631 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:61021 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61022 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:34:58,592 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:34:58,593 - INFO - Env: EURJPY | Pos=0.48 | Slope=-0.00307 | RSI=61.3 | ADX=19.9 | ATR=0.02250 | Session=London
+2026-01-07 20:34:58,599 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+INFO:     127.0.0.1:51117 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:34:58,600 - INFO - Env: XAUJPY | Pos=0.39 | Slope=-25.91351 | RSI=35.2 | ADX=7.8 | ATR=257.00000 | Session=London
+INFO:     127.0.0.1:51118 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:34:58,911 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:34:58,912 - INFO - Env: USDJPY | Pos=0.64 | Slope=-0.00086 | RSI=66.4 | ADX=11.4 | ATR=0.01807 | Session=London
+2026-01-07 20:34:58,912 - INFO - ✅ v10 SELL: Slope=-0.00086 Pos=0.64 RSI=66
+2026-01-07 20:34:58,912 - INFO - ✅ v10.0 Entry: SELL | ADX=11.4 | SL=156.60911 | TP=156.54586
+2026-01-07 20:34:58,911 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:51119 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51120 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51280 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51281 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51282 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51283 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 20:39:58,450 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:39:58,450 - INFO - Env: XAUJPY | Pos=0.31 | Slope=-25.97011 | RSI=27.8 | ADX=9.6 | ATR=284.28571 | Session=London
+INFO:     127.0.0.1:63759 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:39:58,654 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:39:58,654 - INFO - Env: EURJPY | Pos=0.41 | Slope=-0.00289 | RSI=49.8 | ADX=18.5 | ATR=0.02364 | Session=London
+2026-01-07 20:39:58,655 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:63760 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63761 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:39:58,721 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:39:58,721 - INFO - Env: USDJPY | Pos=0.64 | Slope=-0.00072 | RSI=65.7 | ADX=13.0 | ATR=0.01771 | Session=London
+2026-01-07 20:39:58,721 - INFO - ✅ v10 SELL: Slope=-0.00072 Pos=0.64 RSI=66
+2026-01-07 20:39:58,721 - INFO - ✅ v10.0 Entry: SELL | ADX=13.0 | SL=156.60857 | TP=156.54657
+INFO:     127.0.0.1:63762 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:44:58,625 - INFO - 📍 BTCJPY: 2 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:60902 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:44:58,639 - INFO - 📍 EURJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:44:58,640 - INFO - Env: EURJPY | Pos=0.43 | Slope=-0.00272 | RSI=48.0 | ADX=17.0 | ATR=0.02279 | Session=London
+INFO:     127.0.0.1:60903 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:44:58,693 - INFO - 📍 XAUJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:44:58,693 - INFO - Env: XAUJPY | Pos=0.28 | Slope=-25.68256 | RSI=27.5 | ADX=11.9 | ATR=287.28571 | Session=London
+INFO:     127.0.0.1:60904 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:45:00,399 - INFO - 📍 USDJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:45:00,399 - INFO - 🚫 USDJPY: MaxPos (2/2)
+INFO:     127.0.0.1:60905 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49521 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49519 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49520 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49518 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49518 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49520 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49521 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49519 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 20:49:58,486 - INFO - Env: XAUJPY | Pos=0.26 | Slope=-25.54575 | RSI=31.9 | ADX=13.8 | ATR=248.07143 | Session=London
+INFO:     127.0.0.1:61392 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:49:58,941 - INFO - Env: EURJPY | Pos=0.43 | Slope=-0.00254 | RSI=53.5 | ADX=16.3 | ATR=0.02043 | Session=London
+INFO:     127.0.0.1:61393 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:49:59,901 - INFO - Env: USDJPY | Pos=0.56 | Slope=-0.00059 | RSI=56.5 | ADX=13.2 | ATR=0.01936 | Session=London
+2026-01-07 20:49:59,901 - INFO - ✅ v10 SELL: Slope=-0.00059 Pos=0.56 RSI=56
+2026-01-07 20:49:59,901 - INFO - ✅ v10.0 Entry: SELL | ADX=13.2 | SL=156.57804 | TP=156.51029
+INFO:     127.0.0.1:61395 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61394 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:54:58,457 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:54:58,458 - INFO - Env: XAUJPY | Pos=0.34 | Slope=-25.21710 | RSI=29.3 | ADX=15.1 | ATR=239.00000 | Session=London
+INFO:     127.0.0.1:55520 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:54:58,591 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:54:58,591 - INFO - Env: EURJPY | Pos=0.38 | Slope=-0.00238 | RSI=51.2 | ADX=15.3 | ATR=0.02136 | Session=London
+INFO:     127.0.0.1:55521 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:55:04,329 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+2026-01-07 20:55:04,329 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:55:04,330 - INFO - Env: USDJPY | Pos=0.55 | Slope=-0.00046 | RSI=64.6 | ADX=12.8 | ATR=0.01693 | Session=London
+2026-01-07 20:55:04,330 - INFO - ✅ v10 SELL: Slope=-0.00046 Pos=0.55 RSI=65
+2026-01-07 20:55:04,330 - INFO - ✅ v10.0 Entry: SELL | ADX=12.8 | SL=156.56739 | TP=156.50814
+INFO:     127.0.0.1:60386 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60385 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:59:58,420 - INFO - 📍 XAUJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:59:58,421 - INFO - Env: XAUJPY | Pos=0.18 | Slope=-25.46019 | RSI=22.1 | ADX=17.7 | ATR=317.00000 | Session=London
+INFO:     127.0.0.1:49342 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:59:58,441 - INFO - 📍 BTCJPY: 2 positions | Config: HistSize=120, MaxPos=1
+INFO:     127.0.0.1:49343 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 20:59:58,469 - INFO - 📍 USDJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:59:58,469 - INFO - 🚫 USDJPY: MaxPos (2/2)
+2026-01-07 20:59:58,470 - INFO - 📍 EURJPY: 2 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 20:59:58,470 - INFO - Env: EURJPY | Pos=0.42 | Slope=-0.00220 | RSI=52.0 | ADX=14.5 | ATR=0.02171 | Session=London
+INFO:     127.0.0.1:49344 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49345 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57587 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57585 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57586 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57584 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57587 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57584 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57585 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57586 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 21:04:58,421 - INFO - Env: XAUJPY | Pos=0.19 | Slope=-25.30144 | RSI=18.1 | ADX=19.7 | ATR=301.57143 | Session=London
+INFO:     127.0.0.1:59469 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:04:58,510 - INFO - Env: EURJPY | Pos=0.35 | Slope=-0.00206 | RSI=49.4 | ADX=15.2 | ATR=0.02286 | Session=London
+INFO:     127.0.0.1:59470 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:04:59,369 - INFO - Env: USDJPY | Pos=0.46 | Slope=-0.00036 | RSI=53.3 | ADX=13.2 | ATR=0.01821 | Session=London
+INFO:     127.0.0.1:59471 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59472 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:09:58,548 - INFO - Env: USDJPY | Pos=0.48 | Slope=-0.00025 | RSI=53.7 | ADX=13.5 | ATR=0.01836 | Session=London
+INFO:     127.0.0.1:54065 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:09:58,816 - INFO - Env: XAUJPY | Pos=0.15 | Slope=-25.13961 | RSI=15.5 | ADX=21.8 | ATR=316.50000 | Session=London
+INFO:     127.0.0.1:54066 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:09:59,648 - INFO - Env: BTCJPY | Pos=0.26 | Slope=-1398.73917 | RSI=56.6 | ADX=12.7 | ATR=5814.10000 | Session=London
+INFO:     127.0.0.1:51246 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:09:59,658 - INFO - Env: EURJPY | Pos=0.21 | Slope=-0.00198 | RSI=32.8 | ADX=16.1 | ATR=0.02457 | Session=London
+INFO:     127.0.0.1:51247 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:14:58,401 - INFO - Env: XAUJPY | Pos=0.14 | Slope=-24.81047 | RSI=16.3 | ADX=24.4 | ATR=302.64286 | Session=London
+INFO:     127.0.0.1:61528 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:14:58,990 - INFO - Env: EURJPY | Pos=0.26 | Slope=-0.00188 | RSI=35.1 | ADX=16.2 | ATR=0.02543 | Session=London
+INFO:     127.0.0.1:61529 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:14:59,517 - INFO - Env: BTCJPY | Pos=0.25 | Slope=-1394.85291 | RSI=50.1 | ADX=13.1 | ATR=5298.60000 | Session=London
+INFO:     127.0.0.1:61530 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:15:03,788 - INFO - Env: USDJPY | Pos=0.61 | Slope=-0.00013 | RSI=56.5 | ADX=13.4 | ATR=0.01936 | Session=London
+2026-01-07 21:15:03,788 - INFO - ✅ v10 SELL: Slope=-0.00013 Pos=0.61 RSI=56
+2026-01-07 21:15:03,788 - INFO - ✅ v10.0 Entry: SELL | ADX=13.4 | SL=156.55804 | TP=156.49029
+INFO:     127.0.0.1:56449 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:19:58,381 - INFO - 📍 XAUJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 21:19:58,381 - INFO - Env: XAUJPY | Pos=0.08 | Slope=-24.77962 | RSI=12.8 | ADX=27.3 | ATR=325.42857 | Session=London
+INFO:     127.0.0.1:51812 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:19:58,740 - INFO - 📍 EURJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 21:19:58,740 - INFO - Env: EURJPY | Pos=0.30 | Slope=-0.00177 | RSI=40.5 | ADX=16.2 | ATR=0.02557 | Session=London
+INFO:     127.0.0.1:51813 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:19:59,610 - INFO - 📍 USDJPY: 1 positions | Config: HistSize=100, MaxPos=2
+2026-01-07 21:19:59,611 - INFO - Env: USDJPY | Pos=0.70 | Slope=-0.00003 | RSI=50.4 | ADX=12.7 | ATR=0.01700 | Session=London
+2026-01-07 21:19:59,611 - INFO - ✅ v10 SELL: Slope=-0.00003 Pos=0.70 RSI=50
+2026-01-07 21:19:59,611 - INFO - ✅ v10.0 Entry: SELL | ADX=12.7 | SL=156.56850 | TP=156.50900
+2026-01-07 21:19:59,611 - INFO - 📍 BTCJPY: 1 positions | Config: HistSize=120, MaxPos=1
+2026-01-07 21:19:59,612 - INFO - Env: BTCJPY | Pos=0.29 | Slope=-1387.12794 | RSI=44.9 | ADX=11.9 | ATR=4796.45000 | Session=London
+INFO:     127.0.0.1:51815 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51816 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:22:23,629 - WARNING - ⚠️ USDJPY: Loss #1
+2026-01-07 21:22:23,631 - WARNING - ⚠️ USDJPY: Loss #2
+INFO:     127.0.0.1:53931 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 21:22:23,631 - WARNING - ⚠️ USDJPY: Loss #3
+2026-01-07 21:22:23,632 - WARNING - ⚠️ USDJPY: Loss #4
+INFO:     127.0.0.1:53928 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53930 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53932 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 21:24:39,879 - WARNING - ⚠️ USDJPY: Loss #5
+2026-01-07 21:24:39,879 - WARNING - ⚠️ USDJPY: Loss #6
+2026-01-07 21:24:39,879 - WARNING - ⚠️ USDJPY: Loss #7
+2026-01-07 21:24:39,880 - WARNING - ⚠️ USDJPY: Loss #8
+INFO:     127.0.0.1:62702 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62703 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62704 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62705 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 21:24:58,417 - INFO - Env: XAUJPY | Pos=0.21 | Slope=-24.12126 | RSI=27.7 | ADX=28.6 | ATR=377.71429 | Session=London
+INFO:     127.0.0.1:55286 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:24:58,425 - INFO - Env: EURJPY | Pos=0.39 | Slope=-0.00163 | RSI=45.8 | ADX=15.1 | ATR=0.02807 | Session=London
+INFO:     127.0.0.1:55287 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:24:58,433 - INFO - Env: BTCJPY | Pos=0.27 | Slope=-1380.92788 | RSI=45.8 | ADX=11.3 | ATR=4699.30000 | Session=London
+2026-01-07 21:24:58,434 - INFO - 🛑 USDJPY: Cooldown (9min left)
+INFO:     127.0.0.1:55288 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55289 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:29:58,418 - INFO - Env: XAUJPY | Pos=0.27 | Slope=-23.13253 | RSI=33.3 | ADX=29.4 | ATR=395.42857 | Session=London
+INFO:     127.0.0.1:60333 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:29:58,452 - INFO - 🛑 USDJPY: Cooldown (4min left)
+2026-01-07 21:29:58,453 - INFO - Env: BTCJPY | Pos=0.27 | Slope=-1374.43969 | RSI=46.2 | ADX=10.8 | ATR=4677.50000 | Session=London
+2026-01-07 21:29:58,454 - INFO - Env: EURJPY | Pos=0.39 | Slope=-0.00149 | RSI=38.4 | ADX=13.2 | ATR=0.02471 | Session=London
+INFO:     127.0.0.1:60334 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60335 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60336 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:34:58,574 - INFO - Env: USDJPY | Pos=0.66 | Slope=0.00006 | RSI=47.8 | ADX=11.6 | ATR=0.01750 | Session=London
+2026-01-07 21:34:58,576 - INFO - Env: BTCJPY | Pos=0.24 | Slope=-1370.58316 | RSI=37.6 | ADX=10.4 | ATR=4630.50000 | Session=London
+INFO:     127.0.0.1:61413 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:34:58,607 - INFO - Env: EURJPY | Pos=0.39 | Slope=-0.00135 | RSI=31.7 | ADX=11.4 | ATR=0.02479 | Session=London
+INFO:     127.0.0.1:61414 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61415 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:34:58,906 - INFO - Env: XAUJPY | Pos=0.32 | Slope=-22.33707 | RSI=40.0 | ADX=28.9 | ATR=396.57143 | Session=London
+INFO:     127.0.0.1:61416 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:39:58,319 - INFO - Env: XAUJPY | Pos=0.29 | Slope=-21.61534 | RSI=38.9 | ADX=28.7 | ATR=408.00000 | Session=London
+INFO:     127.0.0.1:56483 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:39:59,403 - INFO - Env: BTCJPY | Pos=0.24 | Slope=-1366.08565 | RSI=36.8 | ADX=9.7 | ATR=4572.65000 | Session=London
+2026-01-07 21:39:59,404 - INFO - 📉 v10: BTCJPY: ADX=9.7 < 10 → 弱トレンド、見送り
+2026-01-07 21:39:59,405 - INFO - Env: USDJPY | Pos=0.68 | Slope=0.00014 | RSI=42.1 | ADX=10.0 | ATR=0.01579 | Session=London
+INFO:     127.0.0.1:56484 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56485 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:39:59,905 - INFO - Env: EURJPY | Pos=0.40 | Slope=-0.00123 | RSI=34.8 | ADX=10.1 | ATR=0.02343 | Session=London
+INFO:     127.0.0.1:56486 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:44:58,397 - INFO - Env: XAUJPY | Pos=0.27 | Slope=-20.91184 | RSI=41.8 | ADX=27.8 | ATR=379.42857 | Session=London
+INFO:     127.0.0.1:49997 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:44:58,694 - INFO - Env: EURJPY | Pos=0.41 | Slope=-0.00113 | RSI=35.2 | ADX=8.6 | ATR=0.02357 | Session=London
+2026-01-07 21:44:58,694 - INFO - 📉 v10: EURJPY: ADX=8.6 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49998 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:44:59,067 - INFO - Env: BTCJPY | Pos=0.24 | Slope=-1361.32260 | RSI=34.4 | ADX=8.9 | ATR=4414.80000 | Session=London
+2026-01-07 21:44:59,067 - INFO - 📉 v10: BTCJPY: ADX=8.9 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49999 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:45:00,646 - INFO - Env: USDJPY | Pos=0.78 | Slope=0.00024 | RSI=54.6 | ADX=10.2 | ATR=0.01557 | Session=London
+INFO:     127.0.0.1:50063 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:49:58,347 - INFO - Env: EURJPY | Pos=0.38 | Slope=-0.00105 | RSI=38.7 | ADX=8.5 | ATR=0.02143 | Session=London
+2026-01-07 21:49:58,349 - INFO - 📉 v10: EURJPY: ADX=8.5 < 10 → 弱トレンド、見送り
+2026-01-07 21:49:58,349 - INFO - Env: USDJPY | Pos=0.71 | Slope=0.00033 | RSI=51.5 | ADX=9.8 | ATR=0.01650 | Session=London
+2026-01-07 21:49:58,350 - INFO - 📉 v10: USDJPY: ADX=9.8 < 10 → 弱トレンド、見送り
+2026-01-07 21:49:58,350 - INFO - Env: XAUJPY | Pos=0.32 | Slope=-20.02996 | RSI=50.5 | ADX=25.6 | ATR=367.42857 | Session=London
+2026-01-07 21:49:58,351 - INFO - Env: BTCJPY | Pos=0.26 | Slope=-1355.06594 | RSI=31.1 | ADX=7.4 | ATR=4204.35000 | Session=London
+2026-01-07 21:49:58,351 - INFO - 📉 v10: BTCJPY: ADX=7.4 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:54373 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54372 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54371 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54370 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:54:58,380 - INFO - Env: EURJPY | Pos=0.40 | Slope=-0.00094 | RSI=40.5 | ADX=8.2 | ATR=0.02207 | Session=London
+2026-01-07 21:54:58,380 - INFO - 📉 v10: EURJPY: ADX=8.2 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:62635 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:54:58,463 - INFO - Env: XAUJPY | Pos=0.22 | Slope=-19.08507 | RSI=45.5 | ADX=24.2 | ATR=407.35714 | Session=London
+INFO:     127.0.0.1:62636 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:54:58,478 - INFO - Env: BTCJPY | Pos=0.25 | Slope=-1349.59061 | RSI=32.0 | ADX=6.6 | ATR=4090.05000 | Session=London
+2026-01-07 21:54:58,479 - INFO - 📉 v10: BTCJPY: ADX=6.6 < 10 → 弱トレンド、見送り
+2026-01-07 21:54:58,479 - INFO - Env: USDJPY | Pos=0.78 | Slope=0.00041 | RSI=44.6 | ADX=8.8 | ATR=0.01443 | Session=London
+2026-01-07 21:54:58,479 - INFO - 📉 v10: USDJPY: ADX=8.8 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:62637 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62638 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:59:58,311 - INFO - Env: EURJPY | Pos=0.44 | Slope=-0.00084 | RSI=43.4 | ADX=7.7 | ATR=0.02321 | Session=London
+2026-01-07 21:59:58,311 - INFO - 📉 v10: EURJPY: ADX=7.7 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49461 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 21:59:58,342 - INFO - Env: USDJPY | Pos=0.74 | Slope=0.00047 | RSI=40.9 | ADX=7.8 | ATR=0.01486 | Session=London
+2026-01-07 21:59:58,342 - INFO - 📉 v10: USDJPY: ADX=7.8 < 10 → 弱トレンド、見送り
+2026-01-07 21:59:58,343 - INFO - Env: BTCJPY | Pos=0.22 | Slope=-1346.39574 | RSI=34.2 | ADX=7.3 | ATR=3823.30000 | Session=London
+2026-01-07 21:59:58,344 - INFO - 📉 v10: BTCJPY: ADX=7.3 < 10 → 弱トレンド、見送り
+2026-01-07 21:59:58,345 - INFO - Env: XAUJPY | Pos=0.14 | Slope=-18.46524 | RSI=42.3 | ADX=23.2 | ATR=438.57143 | Session=London
+INFO:     127.0.0.1:49462 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49463 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49464 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:04:58,292 - INFO - Env: EURJPY | Pos=0.45 | Slope=-0.00071 | RSI=47.9 | ADX=8.0 | ATR=0.02179 | Session=London
+2026-01-07 22:04:58,292 - INFO - 📉 v10: EURJPY: ADX=8.0 < 10 → 弱トレンド、見送り
+2026-01-07 22:04:58,299 - INFO - Env: XAUJPY | Pos=0.16 | Slope=-18.00795 | RSI=38.3 | ADX=23.3 | ATR=410.50000 | Session=London
+INFO:     127.0.0.1:56327 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56328 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:04:58,513 - INFO - Env: BTCJPY | Pos=0.26 | Slope=-1355.40403 | RSI=40.1 | ADX=6.8 | ATR=4196.80000 | Session=London
+2026-01-07 22:04:58,513 - INFO - 📉 v10: BTCJPY: ADX=6.8 < 10 → 弱トレンド、見送り
+2026-01-07 22:04:58,513 - INFO - Env: USDJPY | Pos=0.77 | Slope=0.00051 | RSI=37.2 | ADX=6.1 | ATR=0.01400 | Session=London
+2026-01-07 22:04:58,514 - INFO - 📉 v10: USDJPY: ADX=6.1 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:56329 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56330 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:09:58,305 - INFO - Env: XAUJPY | Pos=0.00 | Slope=-18.77342 | RSI=31.5 | ADX=24.0 | ATR=500.07143 | Session=London
+2026-01-07 22:09:58,306 - INFO - Env: EURJPY | Pos=0.42 | Slope=-0.00059 | RSI=43.5 | ADX=7.8 | ATR=0.02200 | Session=London
+2026-01-07 22:09:58,306 - INFO - 📉 v10: EURJPY: ADX=7.8 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:58229 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:09:58,330 - INFO - Env: BTCJPY | Pos=0.14 | Slope=-1382.19461 | RSI=33.8 | ADX=8.6 | ATR=4973.85000 | Session=London
+2026-01-07 22:09:58,330 - INFO - 📉 v10: BTCJPY: ADX=8.6 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:58230 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58231 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:09:58,405 - INFO - Env: USDJPY | Pos=0.86 | Slope=0.00056 | RSI=44.3 | ADX=5.1 | ATR=0.01579 | Session=London
+2026-01-07 22:09:58,405 - INFO - 📉 v10: USDJPY: ADX=5.1 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:58232 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:14:58,307 - INFO - Env: XAUJPY | Pos=0.10 | Slope=-19.00848 | RSI=38.0 | ADX=23.6 | ATR=553.00000 | Session=London
+2026-01-07 22:14:58,308 - INFO - Env: USDJPY | Pos=0.96 | Slope=0.00064 | RSI=58.3 | ADX=6.1 | ATR=0.01543 | Session=London
+2026-01-07 22:14:58,309 - INFO - 📉 v10: USDJPY: ADX=6.1 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:57571 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57570 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:14:58,361 - INFO - Env: BTCJPY | Pos=0.16 | Slope=-1401.94543 | RSI=28.8 | ADX=9.7 | ATR=4624.25000 | Session=London
+2026-01-07 22:14:58,362 - INFO - 📉 v10: BTCJPY: ADX=9.7 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:57572 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:14:58,395 - INFO - Env: EURJPY | Pos=0.41 | Slope=-0.00047 | RSI=51.3 | ADX=7.2 | ATR=0.01864 | Session=London
+2026-01-07 22:14:58,395 - INFO - 📉 v10: EURJPY: ADX=7.2 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:57573 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:19:58,248 - INFO - Env: BTCJPY | Pos=0.19 | Slope=-1412.31772 | RSI=39.9 | ADX=10.3 | ATR=4268.30000 | Session=London
+INFO:     127.0.0.1:62724 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:19:58,305 - INFO - Env: USDJPY | Pos=0.56 | Slope=0.00065 | RSI=39.5 | ADX=7.1 | ATR=0.02279 | Session=London
+2026-01-07 22:19:58,305 - INFO - 📉 v10: USDJPY: ADX=7.1 < 10 → 弱トレンド、見送り
+2026-01-07 22:19:58,306 - INFO - Env: EURJPY | Pos=0.28 | Slope=-0.00036 | RSI=53.0 | ADX=6.8 | ATR=0.01807 | Session=London
+2026-01-07 22:19:58,306 - INFO - 📉 v10: EURJPY: ADX=6.8 < 10 → 弱トレンド、見送り
+2026-01-07 22:19:58,307 - INFO - Env: XAUJPY | Pos=0.04 | Slope=-19.29512 | RSI=36.9 | ADX=23.3 | ATR=570.00000 | Session=London
+INFO:     127.0.0.1:62725 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62727 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62726 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:24:58,281 - INFO - Env: BTCJPY | Pos=0.31 | Slope=-1409.17144 | RSI=56.1 | ADX=10.6 | ATR=5567.10000 | Session=London
+INFO:     127.0.0.1:49456 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:24:58,448 - INFO - Env: XAUJPY | Pos=0.24 | Slope=-18.96059 | RSI=47.0 | ADX=21.3 | ATR=674.00000 | Session=London
+INFO:     127.0.0.1:49457 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:24:58,483 - INFO - Env: EURJPY | Pos=0.46 | Slope=-0.00023 | RSI=59.0 | ADX=5.4 | ATR=0.02071 | Session=London
+2026-01-07 22:24:58,484 - INFO - 📉 v10: EURJPY: ADX=5.4 < 10 → 弱トレンド、見送り
+2026-01-07 22:24:58,484 - INFO - Env: USDJPY | Pos=0.71 | Slope=0.00070 | RSI=51.7 | ADX=6.8 | ATR=0.02336 | Session=London
+2026-01-07 22:24:58,484 - INFO - 📉 v10: USDJPY: ADX=6.8 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49458 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49459 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:29:58,265 - INFO - Env: XAUJPY | Pos=0.21 | Slope=-18.73158 | RSI=47.7 | ADX=19.0 | ATR=664.50000 | Session=London
+INFO:     127.0.0.1:52012 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:29:58,317 - INFO - Env: EURJPY | Pos=0.30 | Slope=-0.00015 | RSI=44.8 | ADX=5.7 | ATR=0.02407 | Session=London
+2026-01-07 22:29:58,317 - INFO - 📉 v10: EURJPY: ADX=5.7 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:52013 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:29:58,350 - INFO - Env: BTCJPY | Pos=0.35 | Slope=-1392.41783 | RSI=55.8 | ADX=11.8 | ATR=5529.75000 | Session=London
+INFO:     127.0.0.1:52014 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:29:58,527 - INFO - Env: USDJPY | Pos=0.51 | Slope=0.00072 | RSI=43.0 | ADX=7.7 | ATR=0.02693 | Session=London
+2026-01-07 22:29:58,527 - INFO - 📉 v10: USDJPY: ADX=7.7 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:52015 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:34:58,241 - INFO - Env: XAUJPY | Pos=0.22 | Slope=-18.54676 | RSI=42.2 | ADX=18.6 | ATR=601.64286 | Session=London
+INFO:     127.0.0.1:55420 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:34:58,361 - INFO - Env: EURJPY | Pos=0.16 | Slope=-0.00010 | RSI=30.4 | ADX=7.8 | ATR=0.02493 | Session=London
+2026-01-07 22:34:58,361 - INFO - 📉 v10: EURJPY: ADX=7.8 < 10 → 弱トレンド、見送り
+2026-01-07 22:34:58,362 - INFO - Env: BTCJPY | Pos=0.27 | Slope=-1381.77370 | RSI=49.6 | ADX=11.6 | ATR=6211.75000 | Session=London
+2026-01-07 22:34:58,362 - INFO - Env: USDJPY | Pos=0.33 | Slope=0.00070 | RSI=35.8 | ADX=9.7 | ATR=0.02936 | Session=London
+2026-01-07 22:34:58,363 - INFO - 📉 v10: USDJPY: ADX=9.7 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:55423 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55421 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55422 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:39:58,254 - INFO - Env: XAUJPY | Pos=0.25 | Slope=-18.42443 | RSI=40.8 | ADX=18.7 | ATR=586.64286 | Session=London
+INFO:     127.0.0.1:61045 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:39:58,362 - INFO - Env: EURJPY | Pos=0.23 | Slope=-0.00004 | RSI=35.5 | ADX=9.3 | ATR=0.02693 | Session=London
+2026-01-07 22:39:58,362 - INFO - 📉 v10: EURJPY: ADX=9.3 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:61046 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:39:58,906 - INFO - Env: USDJPY | Pos=0.45 | Slope=0.00071 | RSI=38.7 | ADX=10.5 | ATR=0.03079 | Session=London
+2026-01-07 22:39:58,921 - INFO - ✅ v10 BUY: Slope=0.00071 Pos=0.45 RSI=39
+2026-01-07 22:39:58,922 - INFO - ✅ v10.0 Entry: BUY | ADX=10.5 | SL=156.39982 | TP=156.50757
+2026-01-07 22:39:58,922 - INFO - Env: BTCJPY | Pos=0.27 | Slope=-1370.53139 | RSI=49.4 | ADX=11.5 | ATR=6230.35000 | Session=London
+INFO:     127.0.0.1:61047 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61048 - "POST /signal HTTP/1.1" 200 OK
+INFO:     192.168.0.177:53435 - "GET / HTTP/1.1" 200 OK
+2026-01-07 22:40:51,476 - WARNING - ⚠️ USDJPY: Loss #1
+2026-01-07 22:40:51,477 - WARNING - ⚠️ USDJPY: Loss #2
+INFO:     127.0.0.1:53438 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 22:40:51,478 - WARNING - ⚠️ USDJPY: Loss #3
+INFO:     127.0.0.1:53439 - "POST /trade_result HTTP/1.1" 200 OK
+2026-01-07 22:40:51,478 - WARNING - ⚠️ USDJPY: Loss #4
+INFO:     127.0.0.1:53437 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53440 - "POST /trade_result HTTP/1.1" 200 OK
+INFO:     192.168.0.177:61943 - "WebSocket /" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     192.168.0.177:61944 - "GET /loginMsg.js HTTP/1.1" 404 Not Found
+INFO:     192.168.0.177:61945 - "GET /cgi/get.cgi?cmd=home_login HTTP/1.1" 404 Not Found
+INFO:     192.168.0.177:61946 - "GET /boaform/admin/formPing/diag_ping.asp HTTP/1.1" 404 Not Found
+2026-01-07 22:44:58,298 - INFO - Env: EURJPY | Pos=0.37 | Slope=0.00006 | RSI=46.5 | ADX=9.1 | ATR=0.02921 | Session=London
+2026-01-07 22:44:58,298 - INFO - 📉 v10: EURJPY: ADX=9.1 < 10 → 弱トレンド、見送り
+2026-01-07 22:44:58,307 - INFO - Env: XAUJPY | Pos=0.28 | Slope=-18.26981 | RSI=39.4 | ADX=19.1 | ATR=573.42857 | Session=London
+INFO:     127.0.0.1:53083 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53084 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:44:59,101 - INFO - Env: BTCJPY | Pos=0.28 | Slope=-1354.73345 | RSI=53.8 | ADX=11.0 | ATR=6014.30000 | Session=London
+2026-01-07 22:44:59,102 - INFO - 🛑 USDJPY: Cooldown (5min left)
+INFO:     127.0.0.1:53085 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53086 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:49:58,203 - INFO - Env: EURJPY | Pos=0.38 | Slope=0.00016 | RSI=45.5 | ADX=9.2 | ATR=0.02921 | Session=London
+2026-01-07 22:49:58,204 - INFO - 📉 v10: EURJPY: ADX=9.2 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:52347 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:49:58,282 - INFO - Env: XAUJPY | Pos=0.29 | Slope=-18.09631 | RSI=41.0 | ADX=19.1 | ATR=560.21429 | Session=London
+INFO:     127.0.0.1:52348 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:49:58,344 - INFO - Env: BTCJPY | Pos=0.24 | Slope=-1344.13699 | RSI=49.4 | ADX=10.6 | ATR=6464.10000 | Session=London
+INFO:     127.0.0.1:52349 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:49:58,398 - INFO - 🛑 USDJPY: Cooldown (0min left)
+INFO:     127.0.0.1:52350 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:54:58,228 - INFO - Env: EURJPY | Pos=0.34 | Slope=0.00025 | RSI=43.0 | ADX=9.6 | ATR=0.02993 | Session=London
+2026-01-07 22:54:58,228 - INFO - 📉 v10: EURJPY: ADX=9.6 < 10 → 弱トレンド、見送り
+2026-01-07 22:54:58,230 - INFO - Env: USDJPY | Pos=0.31 | Slope=0.00070 | RSI=36.4 | ADX=12.2 | ATR=0.03279 | Session=London
+2026-01-07 22:54:58,230 - INFO - ✅ v10 BUY: Slope=0.00070 Pos=0.31 RSI=36
+2026-01-07 22:54:58,230 - INFO - ✅ v10.0 Entry: BUY | ADX=12.2 | SL=156.35882 | TP=156.47357
+INFO:     127.0.0.1:60115 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60116 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:54:58,286 - INFO - Env: XAUJPY | Pos=0.35 | Slope=-17.81178 | RSI=44.6 | ADX=18.5 | ATR=577.71429 | Session=London
+2026-01-07 22:54:58,287 - INFO - Env: BTCJPY | Pos=0.21 | Slope=-1333.57450 | RSI=47.3 | ADX=10.6 | ATR=6756.25000 | Session=London
+INFO:     127.0.0.1:60118 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60117 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:59:58,219 - INFO - Env: EURJPY | Pos=0.48 | Slope=0.00035 | RSI=47.2 | ADX=9.4 | ATR=0.03043 | Session=London
+2026-01-07 22:59:58,219 - INFO - 📉 v10: EURJPY: ADX=9.4 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:49951 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:59:58,229 - INFO - Env: XAUJPY | Pos=0.46 | Slope=-17.10922 | RSI=46.9 | ADX=19.0 | ATR=603.21429 | Session=London
+INFO:     127.0.0.1:49952 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 22:59:58,266 - INFO - Env: USDJPY | Pos=0.41 | Slope=0.00072 | RSI=39.3 | ADX=13.2 | ATR=0.03436 | Session=London
+2026-01-07 22:59:58,266 - INFO - ✅ v10 BUY: Slope=0.00072 Pos=0.41 RSI=39
+2026-01-07 22:59:58,266 - INFO - ✅ v10.0 Entry: BUY | ADX=13.2 | SL=156.38246 | TP=156.50271
+2026-01-07 22:59:58,266 - INFO - Env: BTCJPY | Pos=0.21 | Slope=-1324.02412 | RSI=45.9 | ADX=10.9 | ATR=6591.85000 | Session=London
+INFO:     127.0.0.1:49954 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49953 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:04:58,302 - INFO - Env: BTCJPY | Pos=0.05 | Slope=-1326.08328 | RSI=36.2 | ADX=12.7 | ATR=8361.10000 | Session=London
+INFO:     127.0.0.1:60184 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:04:58,316 - INFO - Env: XAUJPY | Pos=0.44 | Slope=-16.62111 | RSI=50.5 | ADX=18.3 | ATR=560.35714 | Session=London
+INFO:     127.0.0.1:60185 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:04:58,360 - INFO - Env: EURJPY | Pos=0.53 | Slope=0.00042 | RSI=47.4 | ADX=9.1 | ATR=0.03057 | Session=London
+2026-01-07 23:04:58,360 - INFO - 📉 v10: EURJPY: ADX=9.1 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:60186 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:04:58,369 - INFO - Env: USDJPY | Pos=0.33 | Slope=0.00072 | RSI=34.3 | ADX=13.7 | ATR=0.03393 | Session=London
+2026-01-07 23:04:58,369 - INFO - ✅ v10 BUY: Slope=0.00072 Pos=0.33 RSI=34
+2026-01-07 23:04:58,369 - INFO - ✅ v10.0 Entry: BUY | ADX=13.7 | SL=156.36311 | TP=156.48186
+INFO:     127.0.0.1:60187 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:09:58,197 - INFO - Env: XAUJPY | Pos=0.38 | Slope=-16.17988 | RSI=51.7 | ADX=16.5 | ATR=547.35714 | Session=London
+INFO:     127.0.0.1:54372 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:09:58,259 - INFO - Env: USDJPY | Pos=0.48 | Slope=0.00075 | RSI=41.7 | ADX=14.3 | ATR=0.03493 | Session=London
+2026-01-07 23:09:58,259 - INFO - ✅ v10 BUY: Slope=0.00075 Pos=0.48 RSI=42
+2026-01-07 23:09:58,259 - INFO - ✅ v10.0 Entry: BUY | ADX=14.3 | SL=156.40261 | TP=156.52486
+INFO:     127.0.0.1:54373 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:09:58,335 - INFO - Env: BTCJPY | Pos=0.00 | Slope=-1327.86047 | RSI=33.6 | ADX=14.6 | ATR=9002.20000 | Session=London
+INFO:     127.0.0.1:54374 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:09:58,455 - INFO - Env: EURJPY | Pos=0.52 | Slope=0.00048 | RSI=45.0 | ADX=9.0 | ATR=0.02971 | Session=London
+2026-01-07 23:09:58,455 - INFO - 📉 v10: EURJPY: ADX=9.0 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:54375 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:14:58,199 - INFO - Env: USDJPY | Pos=0.65 | Slope=0.00081 | RSI=45.9 | ADX=14.2 | ATR=0.03764 | Session=London
+2026-01-07 23:14:58,211 - INFO - Env: BTCJPY | Pos=0.04 | Slope=-1324.65520 | RSI=33.3 | ADX=16.9 | ATR=8958.60000 | Session=London
+2026-01-07 23:14:58,212 - INFO - Env: XAUJPY | Pos=0.37 | Slope=-16.07489 | RSI=50.5 | ADX=15.0 | ATR=542.92857 | Session=London
+INFO:     127.0.0.1:52339 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52341 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52340 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:14:58,255 - INFO - Env: EURJPY | Pos=0.74 | Slope=0.00055 | RSI=52.0 | ADX=9.9 | ATR=0.03407 | Session=London
+2026-01-07 23:14:58,255 - INFO - 📉 v10: EURJPY: ADX=9.9 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:52342 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:19:58,161 - INFO - Env: BTCJPY | Pos=0.00 | Slope=-1336.13640 | RSI=32.9 | ADX=18.2 | ATR=9057.30000 | Session=London
+INFO:     127.0.0.1:57132 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:19:58,193 - INFO - Env: EURJPY | Pos=0.64 | Slope=0.00060 | RSI=50.5 | ADX=10.3 | ATR=0.03507 | Session=London
+INFO:     127.0.0.1:57134 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:19:58,235 - INFO - Env: XAUJPY | Pos=0.43 | Slope=-15.68487 | RSI=75.0 | ADX=12.0 | ATR=404.57143 | Session=London
+INFO:     127.0.0.1:57135 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:19:58,287 - INFO - Env: USDJPY | Pos=0.67 | Slope=0.00086 | RSI=47.4 | ADX=14.1 | ATR=0.03721 | Session=London
+INFO:     127.0.0.1:57136 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:24:58,173 - INFO - Env: XAUJPY | Pos=0.34 | Slope=-15.45029 | RSI=63.0 | ADX=10.1 | ATR=390.28571 | Session=London
+2026-01-07 23:24:58,215 - INFO - Env: BTCJPY | Pos=0.05 | Slope=-1352.61259 | RSI=35.3 | ADX=19.2 | ATR=9390.05000 | Session=London
+2026-01-07 23:24:58,216 - INFO - Env: EURJPY | Pos=0.60 | Slope=0.00065 | RSI=49.8 | ADX=10.3 | ATR=0.03557 | Session=London
+2026-01-07 23:24:58,216 - INFO - Env: USDJPY | Pos=0.73 | Slope=0.00092 | RSI=48.2 | ADX=14.4 | ATR=0.03779 | Session=London
+INFO:     127.0.0.1:50062 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50064 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50065 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50063 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:30:00,132 - INFO - Env: EURJPY | Pos=0.71 | Slope=0.00072 | RSI=59.9 | ADX=9.5 | ATR=0.03364 | Session=London
+2026-01-07 23:30:00,133 - INFO - 📉 v10: EURJPY: ADX=9.5 < 10 → 弱トレンド、見送り
+2026-01-07 23:30:00,133 - INFO - Env: XAUJPY | Pos=0.32 | Slope=-15.37197 | RSI=68.1 | ADX=7.9 | ATR=361.35714 | Session=London
+2026-01-07 23:30:00,133 - INFO - Env: BTCJPY | Pos=0.04 | Slope=-1370.04372 | RSI=32.3 | ADX=20.8 | ATR=9116.45000 | Session=London
+INFO:     127.0.0.1:64590 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64591 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:30:00,175 - INFO - Env: USDJPY | Pos=0.74 | Slope=0.00097 | RSI=46.2 | ADX=14.1 | ATR=0.03636 | Session=London
+INFO:     127.0.0.1:64589 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64592 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:35:00,120 - INFO - Env: XAUJPY | Pos=0.41 | Slope=-14.97292 | RSI=61.4 | ADX=7.4 | ATR=298.64286 | Session=London
+INFO:     127.0.0.1:60386 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:35:00,169 - INFO - Env: USDJPY | Pos=0.63 | Slope=0.00100 | RSI=40.4 | ADX=12.7 | ATR=0.03657 | Session=London
+2026-01-07 23:35:00,170 - INFO - Env: BTCJPY | Pos=0.09 | Slope=-1380.14506 | RSI=25.4 | ADX=21.9 | ATR=8276.20000 | Session=London
+INFO:     127.0.0.1:60387 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60388 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:35:00,215 - INFO - Env: EURJPY | Pos=0.68 | Slope=0.00075 | RSI=52.5 | ADX=10.1 | ATR=0.02979 | Session=London
+INFO:     127.0.0.1:60389 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:40:00,129 - INFO - Env: XAUJPY | Pos=0.24 | Slope=-15.39308 | RSI=51.1 | ADX=7.2 | ATR=358.57143 | Session=London
+INFO:     127.0.0.1:49326 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:40:00,249 - INFO - Env: BTCJPY | Pos=0.19 | Slope=-1385.27292 | RSI=32.0 | ADX=21.3 | ATR=9071.80000 | Session=London
+INFO:     127.0.0.1:49327 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:40:00,455 - INFO - Env: EURJPY | Pos=0.82 | Slope=0.00080 | RSI=66.5 | ADX=10.2 | ATR=0.02793 | Session=London
+INFO:     127.0.0.1:49328 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:40:00,758 - INFO - Env: USDJPY | Pos=0.77 | Slope=0.00106 | RSI=55.8 | ADX=12.0 | ATR=0.03150 | Session=London
+INFO:     127.0.0.1:49329 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:45:00,107 - INFO - Env: XAUJPY | Pos=0.30 | Slope=-15.33216 | RSI=54.7 | ADX=6.6 | ATR=387.00000 | Session=London
+INFO:     127.0.0.1:61997 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:45:00,145 - INFO - Env: USDJPY | Pos=0.69 | Slope=0.00106 | RSI=48.4 | ADX=11.8 | ATR=0.02993 | Session=London
+INFO:     127.0.0.1:61998 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:45:00,202 - INFO - Env: EURJPY | Pos=0.81 | Slope=0.00085 | RSI=77.6 | ADX=9.5 | ATR=0.02393 | Session=London
+2026-01-07 23:45:00,203 - INFO - 📉 v10: EURJPY: ADX=9.5 < 10 → 弱トレンド、見送り
+2026-01-07 23:45:00,203 - INFO - Env: BTCJPY | Pos=0.24 | Slope=-1383.78356 | RSI=39.0 | ADX=21.5 | ATR=8639.85000 | Session=London
+INFO:     127.0.0.1:62000 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:50:00,058 - INFO - Env: EURJPY | Pos=0.97 | Slope=0.00094 | RSI=78.8 | ADX=10.1 | ATR=0.02521 | Session=London
+2026-01-07 23:50:00,062 - INFO - Env: USDJPY | Pos=0.72 | Slope=0.00107 | RSI=56.8 | ADX=10.7 | ATR=0.02629 | Session=London
+2026-01-07 23:50:00,063 - INFO - Env: BTCJPY | Pos=0.25 | Slope=-1380.85969 | RSI=39.9 | ADX=21.5 | ATR=8736.55000 | Session=London
+INFO:     127.0.0.1:58332 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58334 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58333 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:50:00,096 - INFO - Env: XAUJPY | Pos=0.28 | Slope=-15.35996 | RSI=51.5 | ADX=6.3 | ATR=387.35714 | Session=London
+INFO:     127.0.0.1:58335 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:55:00,049 - INFO - Env: XAUJPY | Pos=0.32 | Slope=-15.00348 | RSI=52.5 | ADX=5.9 | ATR=395.57143 | Session=London
+INFO:     127.0.0.1:59669 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:55:00,184 - INFO - Env: EURJPY | Pos=0.82 | Slope=0.00098 | RSI=64.9 | ADX=10.8 | ATR=0.02443 | Session=London
+INFO:     127.0.0.1:59670 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:55:00,889 - INFO - Env: BTCJPY | Pos=0.28 | Slope=-1371.33329 | RSI=41.2 | ADX=21.4 | ATR=8925.30000 | Session=London
+INFO:     127.0.0.1:59671 - "POST /signal HTTP/1.1" 200 OK
+2026-01-07 23:55:01,033 - INFO - Env: USDJPY | Pos=0.47 | Slope=0.00106 | RSI=54.6 | ADX=9.6 | ATR=0.02736 | Session=London
+2026-01-07 23:55:01,033 - INFO - 📉 v10: USDJPY: ADX=9.6 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:59672 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:00:00,073 - INFO - Env: XAUJPY | Pos=0.30 | Slope=-14.69218 | RSI=50.8 | ADX=5.7 | ATR=402.28571 | Session=London
+2026-01-08 00:00:00,074 - INFO - Env: USDJPY | Pos=0.43 | Slope=0.00104 | RSI=48.5 | ADX=9.5 | ATR=0.02579 | Session=London
+2026-01-08 00:00:00,074 - INFO - 📉 v10: USDJPY: ADX=9.5 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:52390 - "POST /signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52389 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:00:00,129 - INFO - Env: EURJPY | Pos=0.81 | Slope=0.00102 | RSI=65.3 | ADX=11.3 | ATR=0.02429 | Session=London
+INFO:     127.0.0.1:52391 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:00:00,185 - INFO - Env: BTCJPY | Pos=0.34 | Slope=-1360.20537 | RSI=48.1 | ADX=22.0 | ATR=9164.50000 | Session=London
+INFO:     127.0.0.1:52392 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:05:00,055 - INFO - Env: XAUJPY | Pos=0.29 | Slope=-14.49841 | RSI=46.3 | ADX=6.1 | ATR=380.92857 | Session=London
+INFO:     127.0.0.1:59070 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:05:00,113 - INFO - Env: USDJPY | Pos=0.95 | Slope=0.00107 | RSI=67.8 | ADX=8.9 | ATR=0.03286 | Session=London
+2026-01-08 00:05:00,113 - INFO - 📉 v10: USDJPY: ADX=8.9 < 10 → 弱トレンド、見送り
+INFO:     127.0.0.1:59071 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:05:00,132 - INFO - Env: BTCJPY | Pos=0.09 | Slope=-1368.89797 | RSI=37.6 | ADX=22.7 | ATR=11725.85000 | Session=London
+INFO:     127.0.0.1:59072 - "POST /signal HTTP/1.1" 200 OK
+2026-01-08 00:05:00,465 - INFO - Env: EURJPY | Pos=1.00 | Slope=0.00111 | RSI=75.9 | ADX=13.0 | ATR=0.03029 | Session=London
+INFO:     127.0.0.1:59073 - "POST /signal HTTP/1.1" 200 OK
