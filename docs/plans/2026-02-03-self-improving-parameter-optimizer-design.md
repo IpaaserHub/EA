@@ -93,6 +93,122 @@ Build a fully automatic self-improvement layer on top of the existing AI-EA v10.
 
 ---
 
+## Technology Stack
+
+### Open Source Libraries to Use
+
+All libraries below have **MIT or Apache 2.0 licenses** - safe for commercial use and selling.
+
+| Component | Library | License | Purpose | Install |
+|-----------|---------|---------|---------|---------|
+| **Parameter Optimization** | [Optuna](https://optuna.org/) | MIT | Smart parameter search, pruning bad trials | `pip install optuna` |
+| **Technical Indicators** | [pandas-ta](https://github.com/twopirllc/pandas-ta) | MIT | Calculate RSI, ADX, ATR, etc. (200+ indicators) | `pip install pandas-ta` |
+| **Backtesting** | [bt](https://pmorissette.github.io/bt/) | MIT | Run simulated trades on historical data | `pip install bt` |
+| **Scheduling** | [APScheduler](https://github.com/agronholm/apscheduler) | MIT | Run optimizer on schedule (daily, hourly) | `pip install apscheduler` |
+| **API Server** | FastAPI | MIT | Already using - keep it | (installed) |
+| **Database** | SQLite | Public Domain | Already using - keep it | (built-in) |
+
+### Alternative Options
+
+| Component | Alternative | License | When to Use |
+|-----------|-------------|---------|-------------|
+| Backtesting | [PyAlgoTrade](https://gbeced.github.io/pyalgotrade/) | Apache 2.0 | More features, better docs |
+| Indicators | [talipp](https://pypi.org/project/talipp/) | MIT | Real-time streaming data |
+| Indicators | [streaming-indicators](https://pypi.org/project/streaming-indicators/) | MIT | Live tick-by-tick updates |
+
+### Libraries to AVOID (License Issues)
+
+| Library | License | Problem |
+|---------|---------|---------|
+| Backtesting.py | AGPL-3.0 | Must open-source your entire app |
+| QuantConnect Lean | Apache 2.0 | License OK, but it's C# not Python |
+
+### What We Build vs. What We Use
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    APP ARCHITECTURE                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │         OUR ORIGINAL CODE (competitive advantage)       │    │
+│  │                                                         │    │
+│  │  • AI Analyzer (prompts, parsing, decision logic)      │    │
+│  │  • Self-improvement loop orchestration                  │    │
+│  │  • Safety mechanisms (rollback, limits, validation)    │    │
+│  │  • Integration with MetaTrader 5                        │    │
+│  │  • Unique trading strategy logic                        │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                           │                                      │
+│                           ▼                                      │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │         OPEN SOURCE LIBRARIES (free, legal to sell)     │    │
+│  │                                                         │    │
+│  │  • Optuna → parameter optimization engine               │    │
+│  │  • pandas-ta → calculate RSI, ADX, ATR indicators       │    │
+│  │  • bt → run backtests on historical data                │    │
+│  │  • APScheduler → run optimizer on schedule              │    │
+│  │  • FastAPI → API server for MT5 communication           │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Example Integration
+
+```python
+# How the libraries work together
+
+from optuna import create_study, Trial      # MIT - parameter optimization
+import pandas_ta as ta                       # MIT - technical indicators
+from apscheduler.schedulers.background import BackgroundScheduler  # MIT
+import bt                                    # MIT - backtesting
+
+# OUR CODE: The AI-powered optimizer
+class SelfImprovingOptimizer:
+    def __init__(self):
+        self.study = create_study(direction="maximize")
+        self.scheduler = BackgroundScheduler()
+
+    def optimize(self, trial: Trial):
+        # Optuna suggests parameters
+        params = {
+            "adx_threshold": trial.suggest_int("adx_threshold", 3, 30),
+            "tp_mult": trial.suggest_float("tp_mult", 1.0, 4.0),
+            "sl_mult": trial.suggest_float("sl_mult", 0.8, 3.0),
+        }
+
+        # Run backtest with bt library
+        profit = self.run_backtest(params)
+
+        # OUR SECRET SAUCE: AI analyzes results
+        ai_feedback = self.ai_analyzer.analyze(params, profit)
+
+        return profit
+
+    def run_backtest(self, params):
+        # Use bt library for backtesting
+        # Use pandas-ta for indicator calculations
+        pass
+
+    def start_scheduled_optimization(self):
+        # Run optimization every day at 2am
+        self.scheduler.add_job(
+            self.optimize,
+            'cron',
+            hour=2
+        )
+        self.scheduler.start()
+```
+
+### Installation Command
+
+```bash
+pip install optuna pandas-ta bt apscheduler
+```
+
+---
+
 ## Parameters to Optimize
 
 These are the parameters the AI will tune:
