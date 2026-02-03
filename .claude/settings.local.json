@@ -30,7 +30,8 @@
       "Bash(tail:*)",
       "Bash(timeout 120 python:*)",
       "Bash(timeout 180 python:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
