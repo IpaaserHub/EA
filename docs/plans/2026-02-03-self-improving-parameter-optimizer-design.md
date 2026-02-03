@@ -384,3 +384,103 @@ For team members new to trading:
 | Win Rate | Percentage of trades that are profitable |
 | Profit Factor | Gross profit / Gross loss (>1.0 = profitable) |
 | Drawdown | Largest peak-to-trough decline |
+
+---
+
+## Implementation Checklist
+
+### Phase 1: Project Setup
+- [ ] Create folder structure (`src/`, `config/`, `tests/`)
+- [ ] Install dependencies: `pip install optuna pandas-ta bt apscheduler`
+- [ ] Create `requirements.txt`
+- [ ] Set up logging
+
+### Phase 2: Extract Parameters to Config
+- [ ] Create `config/params_XAUJPY.json`
+- [ ] Create `config/params_BTCJPY.json` (for each symbol)
+- [ ] Modify `main_genai_custom.py` to load from JSON instead of hardcoded
+- [ ] Test that trading still works with external config
+
+### Phase 3: Backtest Runner
+- [ ] Create `src/backtest/runner.py`
+- [ ] Integrate pandas-ta for indicator calculations
+- [ ] Integrate bt for running backtests
+- [ ] Output metrics: win_rate, profit, drawdown, sharpe_ratio
+- [ ] Write tests
+
+### Phase 4: AI Analyzer
+- [ ] Create `src/optimizer/ai_analyzer.py`
+- [ ] Design prompt template for OpenAI
+- [ ] Parse AI response (JSON with suggestions)
+- [ ] Add validation (AI can only suggest within limits)
+- [ ] Write tests
+
+### Phase 5: Parameter Manager with Optuna
+- [ ] Create `src/optimizer/param_manager.py`
+- [ ] Integrate Optuna for smart parameter search
+- [ ] Define search space (min/max/step for each param)
+- [ ] Save optimization history to `optimization_log.json`
+- [ ] Write tests
+
+### Phase 6: Main Optimization Loop
+- [ ] Create `src/optimizer/runner.py`
+- [ ] Connect: Optuna → Backtest → AI Analysis → Apply
+- [ ] Add logging for each optimization cycle
+- [ ] Write tests
+
+### Phase 7: Scheduler
+- [ ] Create `src/optimizer/scheduler.py`
+- [ ] Use APScheduler to run daily at 2am
+- [ ] Add start/stop controls
+- [ ] Test scheduled runs
+
+### Phase 8: Safety Mechanisms
+- [ ] Implement parameter boundaries (hard limits)
+- [ ] Implement rollback (revert if performance drops)
+- [ ] Implement validation backtest before applying
+- [ ] Add detailed logging
+- [ ] Write tests
+
+### Phase 9: Integration Testing
+- [ ] Test full loop: optimize → update config → MT5 uses new params
+- [ ] Run on historical data for 30+ days
+- [ ] Verify improvements over baseline
+- [ ] Document results
+
+---
+
+## Research Papers
+
+### Must Read (Directly Applicable)
+
+| Paper | Topic | Link |
+|-------|-------|------|
+| **BayGA: Bayesian Genetic Algorithm** (Nature, 2025) | Bayesian + GA for hyperparameter tuning, 10-16% better returns | [Nature](https://www.nature.com/articles/s41598-025-29383-7) |
+| **Trading Strategy Hyper-parameter Optimization using GA** (IEEE, 2023) | GA for forex technical indicator optimization | [IEEE](https://ieeexplore.ieee.org/iel7/10214666/10214681/10214709.pdf) |
+| **A Forex trading system based on a genetic algorithm** (Journal of Heuristics) | Complete forex system with GA, 10 trading rules | [Springer](https://link.springer.com/article/10.1007/s10732-012-9201-y) |
+| **Hyperparameters in RL and How to Tune Them** (ICML 2023) | Best practices for hyperparameter optimization | [ArXiv](https://arxiv.org/abs/2306.01324) |
+
+### Highly Recommended
+
+| Paper | Topic | Link |
+|-------|-------|------|
+| **RL in Financial Decision Making: Systematic Review** (2025) | Hybrid methods achieve Sharpe 1.57 vs pure RL 1.35 | [ArXiv](https://arxiv.org/html/2512.10913v1) |
+| **Hyperparameter Optimization** (AutoML Book) | Comprehensive guide to Bayesian optimization | [AutoML](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book_Chapter1.pdf) |
+| **Optimal Execution with RL** (2024) | RL for trade execution, outperforms traditional strategies | [ArXiv](https://arxiv.org/abs/2411.06389) |
+
+### Walk-Forward Optimization
+
+| Resource | Topic | Link |
+|----------|-------|------|
+| **Walk-Forward Optimization Guide** (QuantInsti) | Practical Python implementation | [QuantInsti](https://blog.quantinsti.com/walk-forward-optimization-introduction/) |
+| **Walk-Forward Analysis Guide** (Medium) | Step-by-step with code | [Medium](https://medium.com/funny-ai-quant/ai-algorithmic-trading-walk-forward-analysis-a-comprehensive-guide-to-advanced-backtesting-f3f8b790554a) |
+
+### Key Research Insights
+
+| Finding | Implication |
+|---------|-------------|
+| Hybrid methods (RL + heuristics) outperform pure RL by ~20% | Your approach is validated |
+| Bayesian + Genetic algorithms work well together | Use Optuna's TPE sampler |
+| Walk-forward optimization prevents overfitting | Re-optimize every 6-12 months |
+| Multi-threshold optimization beats single-threshold | Optimize all parameters together |
+| Sharpe ratio > 1.0 is a good target | Use Sharpe as fitness function |
