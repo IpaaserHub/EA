@@ -10,7 +10,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from optimizer.walk_forward import WalkForwardResult
+from optimizer.walk_forward import WalkForwardResult, WalkForwardOptimizer
 
 
 class TestWalkForwardResult:
@@ -44,3 +44,25 @@ class TestWalkForwardResult:
         assert isinstance(result_dict, dict)
         assert "robustness_ratio" in result_dict
         assert "is_robust" in result_dict
+
+
+class TestWalkForwardOptimizerInit:
+    """Tests for WalkForwardOptimizer initialization."""
+
+    def test_init_defaults(self):
+        """Should initialize with default settings."""
+        wfo = WalkForwardOptimizer()
+        assert wfo.n_splits == 5
+        assert wfo.min_train_size == 100
+        assert wfo.optuna_trials == 30
+
+    def test_init_custom(self):
+        """Should accept custom settings."""
+        wfo = WalkForwardOptimizer(
+            n_splits=3,
+            min_train_size=50,
+            optuna_trials=10,
+        )
+        assert wfo.n_splits == 3
+        assert wfo.min_train_size == 50
+        assert wfo.optuna_trials == 10

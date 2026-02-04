@@ -10,8 +10,11 @@ This module:
 4. Calculates robustness metrics
 """
 
+import logging
 from typing import List, Dict, Any
 from dataclasses import dataclass
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -34,3 +37,38 @@ class WalkForwardResult:
             "robustness_ratio": round(self.robustness_ratio, 4),
             "is_robust": self.is_robust,
         }
+
+
+class WalkForwardOptimizer:
+    """
+    Walk-forward optimization for trading strategy validation.
+
+    Uses TimeSeriesSplit to divide data into folds, optimizes on
+    in-sample data, and validates on out-of-sample data.
+
+    Usage:
+        wfo = WalkForwardOptimizer(n_splits=5)
+        result = wfo.run(prices, backtest_fn, initial_params)
+        print(f"Robustness: {result.robustness_ratio}")
+    """
+
+    def __init__(
+        self,
+        n_splits: int = 5,
+        min_train_size: int = 100,
+        optuna_trials: int = 30,
+        seed: int = None,
+    ):
+        """
+        Initialize walk-forward optimizer.
+
+        Args:
+            n_splits: Number of walk-forward folds
+            min_train_size: Minimum candles for training period
+            optuna_trials: Optuna trials per fold
+            seed: Random seed for reproducibility
+        """
+        self.n_splits = n_splits
+        self.min_train_size = min_train_size
+        self.optuna_trials = optuna_trials
+        self.seed = seed
