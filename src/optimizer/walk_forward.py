@@ -72,3 +72,30 @@ class WalkForwardOptimizer:
         self.min_train_size = min_train_size
         self.optuna_trials = optuna_trials
         self.seed = seed
+
+    def _split_data(self, prices: List[Dict]) -> List[tuple]:
+        """
+        Split price data into train/test folds using TimeSeriesSplit.
+
+        Args:
+            prices: List of OHLC dicts
+
+        Returns:
+            List of (train_data, test_data) tuples
+        """
+        from sklearn.model_selection import TimeSeriesSplit
+
+        n_samples = len(prices)
+        tscv = TimeSeriesSplit(n_splits=self.n_splits)
+
+        folds = []
+        for train_idx, test_idx in tscv.split(range(n_samples)):
+            # Ensure minimum training size
+            if len(train_idx) < self.min_train_size:
+                continue
+
+            train_data = [prices[i] for i in train_idx]
+            test_data = [prices[i] for i in test_idx]
+            folds.append((train_data, test_data))
+
+        return folds
