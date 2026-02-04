@@ -227,3 +227,15 @@ class TestConvenienceFunction:
 
         assert isinstance(result, WalkForwardResult)
         assert result.robustness_ratio > 0
+
+
+class TestModuleExports:
+    """Tests for module exports."""
+
+    def test_import_from_optimizer(self):
+        """Should be able to import from optimizer package."""
+        from optimizer import WalkForwardOptimizer, WalkForwardResult, run_walk_forward
+
+        assert WalkForwardOptimizer is not None
+        assert WalkForwardResult is not None
+        assert run_walk_forward is not None
