@@ -13,6 +13,7 @@ This module:
 import logging
 from typing import List, Dict, Any
 from dataclasses import dataclass
+from sklearn.model_selection import TimeSeriesSplit
 
 logger = logging.getLogger(__name__)
 
@@ -82,8 +83,12 @@ class WalkForwardOptimizer:
 
         Returns:
             List of (train_data, test_data) tuples
+
+        Raises:
+            ValueError: If prices list is empty
         """
-        from sklearn.model_selection import TimeSeriesSplit
+        if not prices:
+            raise ValueError("prices list cannot be empty")
 
         n_samples = len(prices)
         tscv = TimeSeriesSplit(n_splits=self.n_splits)
@@ -97,5 +102,8 @@ class WalkForwardOptimizer:
             train_data = [prices[i] for i in train_idx]
             test_data = [prices[i] for i in test_idx]
             folds.append((train_data, test_data))
+
+        if not folds:
+            logger.warning(f"No valid folds generated. Data has {n_samples} samples, min_train_size={self.min_train_size}")
 
         return folds
