@@ -207,3 +207,23 @@ class TestWalkForwardRun:
             and result.avg_out_sample_pf > 1.0
         )
         assert result.is_robust == expected_robust
+
+
+from optimizer.walk_forward import run_walk_forward
+
+
+class TestConvenienceFunction:
+    """Tests for run_walk_forward convenience function."""
+
+    def test_run_walk_forward_works(self, mock_prices, simple_backtest_fn):
+        """run_walk_forward() should work like WalkForwardOptimizer.run()."""
+        result = run_walk_forward(
+            prices=mock_prices,
+            backtest_fn=simple_backtest_fn,
+            initial_params={"adx_threshold": 10},
+            n_splits=3,
+            optuna_trials=5,
+        )
+
+        assert isinstance(result, WalkForwardResult)
+        assert result.robustness_ratio > 0

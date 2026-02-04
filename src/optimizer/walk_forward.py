@@ -219,3 +219,33 @@ class WalkForwardOptimizer:
             robustness_ratio=robustness,
             is_robust=is_robust,
         )
+
+
+def run_walk_forward(
+    prices: List[Dict],
+    backtest_fn: Callable,
+    initial_params: Dict[str, Any],
+    n_splits: int = 5,
+    optuna_trials: int = 30,
+    seed: int = None,
+) -> WalkForwardResult:
+    """
+    Convenience function to run walk-forward optimization.
+
+    Args:
+        prices: List of OHLC price dicts
+        backtest_fn: Function(prices, params) -> BacktestResult
+        initial_params: Starting parameters
+        n_splits: Number of walk-forward folds
+        optuna_trials: Optuna trials per fold
+        seed: Random seed
+
+    Returns:
+        WalkForwardResult with robustness metrics
+    """
+    optimizer = WalkForwardOptimizer(
+        n_splits=n_splits,
+        optuna_trials=optuna_trials,
+        seed=seed,
+    )
+    return optimizer.run(prices, backtest_fn, initial_params)
