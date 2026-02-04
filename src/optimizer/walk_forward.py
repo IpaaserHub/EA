@@ -11,7 +11,7 @@ This module:
 """
 
 import logging
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Callable
 from dataclasses import dataclass
 from sklearn.model_selection import TimeSeriesSplit
 
@@ -107,3 +107,115 @@ class WalkForwardOptimizer:
             logger.warning(f"No valid folds generated. Data has {n_samples} samples, min_train_size={self.min_train_size}")
 
         return folds
+
+    def run(
+        self,
+        prices: List[Dict],
+        backtest_fn: Callable,
+        initial_params: Dict[str, Any],
+        show_progress: bool = True,
+    ) -> WalkForwardResult:
+        """
+        Run walk-forward optimization.
+
+        Args:
+            prices: List of OHLC price dicts
+            backtest_fn: Function(prices, params) -> BacktestResult
+            initial_params: Starting parameters
+            show_progress: Print progress messages
+
+        Returns:
+            WalkForwardResult with robustness metrics
+        """
+        from .optuna_optimizer import OptunaOptimizer
+
+        folds = self._split_data(prices)
+
+        if not folds:
+            logger.warning("Not enough data for walk-forward analysis")
+            return WalkForwardResult(
+                in_sample_results=[],
+                out_sample_results=[],
+                avg_in_sample_pf=0,
+                avg_out_sample_pf=0,
+                robustness_ratio=0,
+                is_robust=False,
+            )
+
+        in_sample_results = []
+        out_sample_results = []
+
+        for fold_idx, (train_data, test_data) in enumerate(folds):
+            if show_progress:
+                logger.info(f"=== Fold {fold_idx + 1}/{len(folds)} ===")
+                logger.info(f"  Train: {len(train_data)} candles, Test: {len(test_data)} candles")
+
+            # Create optimizer for this fold
+            optimizer = OptunaOptimizer(
+                study_name=f"wfo_fold_{fold_idx}",
+                seed=self.seed,
+            )
+
+            # Objective: maximize profit factor on training data
+            def objective(params):
+                result = backtest_fn(train_data, params)
+                return result.profit_factor if result.profit_factor else 0.0
+
+            # Optimize on in-sample data
+            opt_result = optimizer.optimize(
+                objective_fn=objective,
+                n_trials=self.optuna_trials,
+                initial_params=initial_params,
+                show_progress=False,
+            )
+
+            best_params = opt_result.best_params
+
+            # Backtest on in-sample with best params
+            in_result = backtest_fn(train_data, best_params)
+            in_sample_results.append({
+                "fold": fold_idx,
+                "profit_factor": in_result.profit_factor,
+                "win_rate": in_result.win_rate,
+                "total_trades": in_result.total_trades,
+                "params": best_params,
+            })
+
+            # Validate on out-of-sample data
+            out_result = backtest_fn(test_data, best_params)
+            out_sample_results.append({
+                "fold": fold_idx,
+                "profit_factor": out_result.profit_factor,
+                "win_rate": out_result.win_rate,
+                "total_trades": out_result.total_trades,
+            })
+
+            if show_progress:
+                logger.info(f"  In-sample PF: {in_result.profit_factor:.2f}")
+                logger.info(f"  Out-sample PF: {out_result.profit_factor:.2f}")
+
+        # Calculate averages
+        avg_in_pf = sum(r["profit_factor"] for r in in_sample_results) / len(in_sample_results)
+        avg_out_pf = sum(r["profit_factor"] for r in out_sample_results) / len(out_sample_results)
+
+        # Calculate robustness ratio
+        robustness = avg_out_pf / avg_in_pf if avg_in_pf > 0 else 0
+
+        # Determine if robust
+        is_robust = robustness > 0.5 and avg_out_pf > 1.0
+
+        if show_progress:
+            logger.info(f"=== Summary ===")
+            logger.info(f"  Avg In-sample PF: {avg_in_pf:.2f}")
+            logger.info(f"  Avg Out-sample PF: {avg_out_pf:.2f}")
+            logger.info(f"  Robustness Ratio: {robustness:.2f}")
+            logger.info(f"  Is Robust: {is_robust}")
+
+        return WalkForwardResult(
+            in_sample_results=in_sample_results,
+            out_sample_results=out_sample_results,
+            avg_in_sample_pf=avg_in_pf,
+            avg_out_sample_pf=avg_out_pf,
+            robustness_ratio=robustness,
+            is_robust=is_robust,
+        )
