@@ -1,15 +1,14 @@
 {
+  "adx_threshold": 30,
+  "slope_threshold": 1.636568093663235e-05,
+  "buy_position": 0.45252743768811776,
+  "sell_position": 0.4588969071035328,
+  "rsi_buy_max": 65,
+  "rsi_sell_min": 21,
+  "tp_mult": 4.0,
+  "sl_mult": 1.2554435645630941,
   "symbol": "XAUJPY",
   "mode": "AGGRESSIVE",
   "updated_at": "2026-02-03",
-  "updated_by": "initial",
-
-  "adx_threshold": 5,
-  "slope_threshold": 0.00001,
-  "buy_position": 0.50,
-  "sell_position": 0.50,
-  "rsi_buy_max": 75,
-  "rsi_sell_min": 25,
-  "tp_mult": 2.0,
-  "sl_mult": 1.5
+  "updated_by": "initial"
 }

@@ -1,15 +1,14 @@
 {
+  "adx_threshold": 11,
+  "slope_threshold": 6.861156016987364e-06,
+  "buy_position": 0.3385297335438636,
+  "sell_position": 0.59261714993868,
+  "rsi_buy_max": 77,
+  "rsi_sell_min": 15,
+  "tp_mult": 2.7609977972488013,
+  "sl_mult": 0.8132871673170681,
   "symbol": "USDJPY",
   "mode": "AGGRESSIVE",
   "updated_at": "2026-02-03",
-  "updated_by": "initial",
-
-  "adx_threshold": 10,
-  "slope_threshold": 0.00002,
-  "buy_position": 0.50,
-  "sell_position": 0.50,
-  "rsi_buy_max": 75,
-  "rsi_sell_min": 25,
-  "tp_mult": 2.0,
-  "sl_mult": 1.5
+  "updated_by": "initial"
 }

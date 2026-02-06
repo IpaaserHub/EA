@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA Parameter Optimizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #0f1419;
+            --bg-tertiary: #151b23;
+            --bg-card: #1a222d;
+            --bg-hover: #232d3b;
+            --border: #2a3544;
+            --border-light: #3a4554;
+            --text-primary: #e6e6e6;
+            --text-secondary: #8b949e;
+            --text-muted: #5c6370;
+            --accent: #58a6ff;
+            --accent-dim: #1f4a7a;
+            --profit: #3fb950;
+            --profit-dim: #1a4d2a;
+            --loss: #f85149;
+            --loss-dim: #4d1a1a;
+            --warning: #d29922;
+            --warning-dim: #4d3a1a;
+            --grid-line: #1e2733;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--border-light);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--profit) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--bg-primary);
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--profit);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Main Layout */
+        main {
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            min-height: calc(100vh - 56px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 20px 0;
+            overflow-y: auto;
+        }
+
+        .sidebar-section {
+            padding: 0 16px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            padding: 0 8px;
+        }
+
+        .symbol-list {
+            list-style: none;
+        }
+
+        .symbol-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.15s ease;
+            margin-bottom: 4px;
+        }
+
+        .symbol-item:hover {
+            background: var(--bg-hover);
+        }
+
+        .symbol-item.active {
+            background: var(--accent-dim);
+            border: 1px solid var(--accent);
+        }
+
+        .symbol-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .symbol-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .symbol-pf {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: var(--bg-tertiary);
+        }
+
+        .symbol-pf.positive { color: var(--profit); background: var(--profit-dim); }
+        .symbol-pf.negative { color: var(--loss); background: var(--loss-dim); }
+
+        /* Content Area */
+        .content {
+            padding: 24px;
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .stat-value.positive { color: var(--profit); }
+        .stat-value.negative { color: var(--loss); }
+
+        .stat-change {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .stat-change.up { color: var(--profit); }
+        .stat-change.down { color: var(--loss); }
+
+        /* Parameter Grid */
+        .param-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .param-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .param-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .param-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .param-input {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-primary);
+            width: 100px;
+            text-align: right;
+        }
+
+        .param-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4a9aef;
+            transform: translateY(-1px);
+        }
+
+        .btn-success {
+            background: var(--profit);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #4dc760;
+        }
+
+        .btn-danger {
+            background: var(--loss);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-hover);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            height: 300px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Trade List */
+        .trade-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .trade-item {
+            display: grid;
+            grid-template-columns: 60px 1fr 80px 80px;
+            gap: 12px;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            align-items: center;
+        }
+
+        .trade-item:last-child {
+            border-bottom: none;
+        }
+
+        .trade-direction {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .trade-direction.buy {
+            background: var(--profit-dim);
+            color: var(--profit);
+        }
+
+        .trade-direction.sell {
+            background: var(--loss-dim);
+            color: var(--loss);
+        }
+
+        .trade-profit {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .trade-profit.positive { color: var(--profit); }
+        .trade-profit.negative { color: var(--loss); }
+
+        /* Right Panel */
+        .panel {
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            margin-bottom: 24px;
+        }
+
+        .panel-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Job List */
+        .job-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .job-symbol {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .job-status {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .job-status.running {
+            background: var(--warning-dim);
+            color: var(--warning);
+            animation: pulse 1s infinite;
+        }
+
+        .job-status.completed {
+            background: var(--profit-dim);
+            color: var(--profit);
+        }
+
+        .job-status.failed {
+            background: var(--loss-dim);
+            color: var(--loss);
+        }
+
+        .job-result {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* Log Entry */
+        .log-entry {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+
+        .log-time {
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .log-message {
+            color: var(--text-secondary);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+            animation: modalIn 0.2s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 20px;
+            padding: 4px;
+        }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-checkbox input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent);
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1100;
+        }
+
+        .toast {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: toastIn 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast.success { border-left: 3px solid var(--profit); }
+        .toast.error { border-left: 3px solid var(--loss); }
+        .toast.info { border-left: 3px solid var(--accent); }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">EA</div>
+            <h1>Parameter Optimizer</h1>
+        </div>
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-dot"></div>
+                <span>System Online</span>
+            </div>
+            <div class="status-item" id="clock"></div>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Trading Symbols</div>
+                <ul class="symbol-list" id="symbolList">
+                    <div class="loading"><div class="spinner"></div></div>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <button class="btn btn-primary" style="width: 100%;" onclick="openOptimizeAllModal()">
+                    <span>⚡</span> Optimize All
+                </button>
+            </div>
+        </aside>
+
+        <section class="content" id="mainContent">
+            <div class="empty-state">
+                <div class="empty-state-icon">📊</div>
+                <p>Select a symbol to view details</p>
+            </div>
+        </section>
+
+        <aside class="panel">
+            <div class="panel-section">
+                <div class="panel-title">
+                    <span>⚡</span> Active Jobs
+                </div>
+                <div id="jobList">
+                    <div class="empty-state" style="padding: 20px;">
+                        <p style="font-size: 12px;">No active jobs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <div class="panel-title">
+                    <span>📋</span> Recent Logs
+                </div>
+                <div id="logList">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Optimize Modal -->
+    <div class="modal-overlay" id="optimizeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Run Optimization</div>
+                <button class="modal-close" onclick="closeModal('optimizeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Symbol</label>
+                    <input type="text" class="form-input" id="optimizeSymbol" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Number of Trials</label>
+                    <input type="number" class="form-input" id="optimizeTrials" value="50" min="10" max="500">
+                </div>
+                <div class="form-group">
+                    <label class="form-checkbox">
+                        <input type="checkbox" id="optimizeAutoApply">
+                        <span>Auto-apply if improvement > 5%</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-checkbox">
+                        <input type="checkbox" id="optimizeUseAI">
+                        <span>Use AI analysis (requires API key)</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('optimizeModal')">Cancel</button>
+                <button class="btn btn-success" onclick="startOptimization()">
+                    <span>⚡</span> Start Optimization
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Params Modal -->
+    <div class="modal-overlay" id="editParamsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Edit Parameters</div>
+                <button class="modal-close" onclick="closeModal('editParamsModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="editParamsBody">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('editParamsModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveParams()">Save Parameters</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // State
+        let currentSymbol = null;
+        let symbols = [];
+        let jobs = {};
+        let refreshInterval = null;
+
+        // API helpers
+        const API = {
+            async get(url) {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(await res.text());
+                return res.json();
+            },
+            async post(url, data) {
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!res.ok) throw new Error(await res.text());
+                return res.json();
+            },
+            async put(url, data) {
+                const res = await fetch(url, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!res.ok) throw new Error(await res.text());
+                return res.json();
+            }
+        };
+
+        // Toast notifications
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = message;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 4000);
+        }
+
+        // Modal helpers
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Load symbols
+        async function loadSymbols() {
+            try {
+                const data = await API.get('/api/status');
+                symbols = data.symbols;
+                renderSymbolList();
+            } catch (e) {
+                showToast('Failed to load symbols', 'error');
+            }
+        }
+
+        function renderSymbolList() {
+            const list = document.getElementById('symbolList');
+            if (!symbols.length) {
+                list.innerHTML = '<div class="empty-state"><p>No symbols configured</p></div>';
+                return;
+            }
+
+            list.innerHTML = symbols.map(s => `
+                <li class="symbol-item ${currentSymbol === s.symbol ? 'active' : ''}" onclick="selectSymbol('${s.symbol}')">
+                    <div>
+                        <div class="symbol-name">${s.symbol}</div>
+                        <div class="symbol-meta">${s.has_data ? 'Data ready' : 'No data'}</div>
+                    </div>
+                    <div class="symbol-pf">ADX ${s.adx_threshold}</div>
+                </li>
+            `).join('');
+        }
+
+        // Select symbol
+        async function selectSymbol(symbol) {
+            currentSymbol = symbol;
+            renderSymbolList();
+            await loadSymbolDetails(symbol);
+        }
+
+        // Load symbol details
+        async function loadSymbolDetails(symbol) {
+            const content = document.getElementById('mainContent');
+            content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+            try {
+                const [details, backtest] = await Promise.all([
+                    API.get(`/api/symbols/${symbol}`),
+                    API.post('/api/backtest', { symbol })
+                ]);
+
+                renderSymbolDetails(details, backtest);
+            } catch (e) {
+                content.innerHTML = `<div class="empty-state"><p>Error: ${e.message}</p></div>`;
+            }
+        }
+
+        function renderSymbolDetails(details, backtest) {
+            const r = backtest.result;
+            const content = document.getElementById('mainContent');
+
+            content.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Profit Factor</div>
+                        <div class="stat-value ${r.profit_factor >= 1 ? 'positive' : 'negative'}">${r.profit_factor.toFixed(2)}</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Win Rate</div>
+                        <div class="stat-value">${r.win_rate.toFixed(1)}%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Total Trades</div>
+                        <div class="stat-value">${r.total_trades}</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Total Profit</div>
+                        <div class="stat-value ${r.total_profit >= 0 ? 'positive' : 'negative'}">${r.total_profit.toFixed(0)}</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>⚙️</span> Parameters
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" onclick="openEditParamsModal('${details.symbol}')">Edit</button>
+                            <button class="btn btn-primary" onclick="openOptimizeModal('${details.symbol}')">
+                                <span>⚡</span> Optimize
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="param-grid">
+                            ${Object.entries(details.params)
+                                .filter(([k]) => details.param_limits[k])
+                                .map(([k, v]) => `
+                                    <div class="param-item">
+                                        <div class="param-name">${k}</div>
+                                        <div class="param-value">${typeof v === 'number' ? v.toFixed(v < 0.01 ? 6 : 2) : v}</div>
+                                    </div>
+                                `).join('')}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📊</span> Backtest Results
+                        </div>
+                        <button class="btn btn-secondary" onclick="runBacktest('${details.symbol}')">
+                            Refresh
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <div class="stat-label">Max Drawdown</div>
+                                <div class="stat-value negative" style="font-size: 18px;">${r.max_drawdown.toFixed(2)}</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Avg Win / Loss</div>
+                                <div style="font-family: 'JetBrains Mono', monospace;">
+                                    <span style="color: var(--profit)">+${r.avg_win.toFixed(2)}</span>
+                                    / <span style="color: var(--loss)">-${r.avg_loss.toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📈</span> Recent Trades (${backtest.trades.length})
+                        </div>
+                    </div>
+                    <div class="trade-list">
+                        ${backtest.trades.slice(-20).reverse().map(t => `
+                            <div class="trade-item">
+                                <div class="trade-direction ${t.direction}">${t.direction.toUpperCase()}</div>
+                                <div style="color: var(--text-secondary)">
+                                    ${t.entry_price.toFixed(2)} → ${t.exit_price.toFixed(2)}
+                                </div>
+                                <div style="color: var(--text-muted)">#${t.entry_idx}</div>
+                                <div class="trade-profit ${t.profit >= 0 ? 'positive' : 'negative'}">
+                                    ${t.profit >= 0 ? '+' : ''}${t.profit.toFixed(2)}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📜</span> Parameter History
+                        </div>
+                        <button class="btn btn-secondary" onclick="rollbackParams('${details.symbol}')">
+                            Rollback
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        ${details.history.length ? details.history.slice().reverse().map(h => `
+                            <div class="log-entry">
+                                <div class="log-time">${new Date(h.timestamp).toLocaleString()}</div>
+                                <div class="log-message">${h.reason || 'Parameter update'}</div>
+                            </div>
+                        `).join('') : '<div class="empty-state"><p>No history</p></div>'}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Backtest
+        async function runBacktest(symbol) {
+            showToast('Running backtest...', 'info');
+            await loadSymbolDetails(symbol);
+            showToast('Backtest complete', 'success');
+        }
+
+        // Optimize modal
+        function openOptimizeModal(symbol) {
+            document.getElementById('optimizeSymbol').value = symbol;
+            openModal('optimizeModal');
+        }
+
+        function openOptimizeAllModal() {
+            document.getElementById('optimizeSymbol').value = 'ALL SYMBOLS';
+            openModal('optimizeModal');
+        }
+
+        async function startOptimization() {
+            const symbol = document.getElementById('optimizeSymbol').value;
+            const trials = parseInt(document.getElementById('optimizeTrials').value);
+            const autoApply = document.getElementById('optimizeAutoApply').checked;
+            const useAI = document.getElementById('optimizeUseAI').checked;
+
+            closeModal('optimizeModal');
+
+            if (symbol === 'ALL SYMBOLS') {
+                for (const s of symbols) {
+                    await startSingleOptimization(s.symbol, trials, autoApply, useAI);
+                }
+            } else {
+                await startSingleOptimization(symbol, trials, autoApply, useAI);
+            }
+        }
+
+        async function startSingleOptimization(symbol, trials, autoApply, useAI) {
+            try {
+                const result = await API.post('/api/optimize', {
+                    symbol, n_trials: trials, auto_apply: autoApply, use_ai: useAI
+                });
+                showToast(`Started optimization for ${symbol}`, 'success');
+                loadJobs();
+            } catch (e) {
+                showToast(`Failed: ${e.message}`, 'error');
+            }
+        }
+
+        // Edit params modal
+        async function openEditParamsModal(symbol) {
+            const details = await API.get(`/api/symbols/${symbol}`);
+            const body = document.getElementById('editParamsBody');
+
+            body.innerHTML = Object.entries(details.params)
+                .filter(([k]) => details.param_limits[k])
+                .map(([k, v]) => {
+                    const limits = details.param_limits[k];
+                    return `
+                        <div class="form-group">
+                            <label class="form-label">${k} (${limits.min} - ${limits.max})</label>
+                            <input type="number" class="form-input" id="param_${k}"
+                                value="${v}" min="${limits.min}" max="${limits.max}"
+                                step="${limits.type === 'int' ? 1 : 0.001}">
+                        </div>
+                    `;
+                }).join('');
+
+            body.dataset.symbol = symbol;
+            openModal('editParamsModal');
+        }
+
+        async function saveParams() {
+            const body = document.getElementById('editParamsBody');
+            const symbol = body.dataset.symbol;
+            const params = {};
+
+            body.querySelectorAll('input').forEach(input => {
+                const key = input.id.replace('param_', '');
+                params[key] = parseFloat(input.value);
+            });
+
+            try {
+                await API.put(`/api/symbols/${symbol}/params`, { params });
+                closeModal('editParamsModal');
+                showToast('Parameters saved', 'success');
+                await loadSymbolDetails(symbol);
+            } catch (e) {
+                showToast(`Failed: ${e.message}`, 'error');
+            }
+        }
+
+        // Rollback
+        async function rollbackParams(symbol) {
+            if (!confirm('Roll back to previous parameters?')) return;
+
+            try {
+                await API.post(`/api/symbols/${symbol}/rollback?steps=1`);
+                showToast('Rolled back', 'success');
+                await loadSymbolDetails(symbol);
+            } catch (e) {
+                showToast(`Failed: ${e.message}`, 'error');
+            }
+        }
+
+        // Jobs
+        async function loadJobs() {
+            try {
+                const data = await API.get('/api/jobs');
+                jobs = data.jobs.reduce((acc, j) => ({ ...acc, [j.id]: j }), {});
+                renderJobs();
+            } catch (e) {}
+        }
+
+        function renderJobs() {
+            const list = document.getElementById('jobList');
+            const jobArray = Object.values(jobs).reverse().slice(0, 10);
+
+            if (!jobArray.length) {
+                list.innerHTML = '<div class="empty-state" style="padding: 20px;"><p style="font-size: 12px;">No jobs</p></div>';
+                return;
+            }
+
+            list.innerHTML = jobArray.map(j => `
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-symbol">${j.symbol}</span>
+                        <span class="job-status ${j.status}">${j.status}</span>
+                    </div>
+                    ${j.result ? `
+                        <div class="job-result">
+                            PF: ${j.result.old_profit_factor} → ${j.result.new_profit_factor}
+                            (${j.result.improvement_pct >= 0 ? '+' : ''}${j.result.improvement_pct}%)
+                            ${j.result.applied ? '✓ Applied' : ''}
+                        </div>
+                    ` : `<div class="job-result">${j.n_trials} trials</div>`}
+                </div>
+            `).join('');
+        }
+
+        // Logs
+        async function loadLogs() {
+            try {
+                const data = await API.get('/api/logs?limit=5');
+                renderLogs(data.logs);
+            } catch (e) {}
+        }
+
+        function renderLogs(logs) {
+            const list = document.getElementById('logList');
+
+            if (!logs.length) {
+                list.innerHTML = '<div class="empty-state" style="padding: 20px;"><p style="font-size: 12px;">No logs</p></div>';
+                return;
+            }
+
+            list.innerHTML = logs.map(log => `
+                <div class="log-entry">
+                    <div class="log-time">${new Date(log.timestamp).toLocaleString()}</div>
+                    <div class="log-message">
+                        ${log.results.map(r =>
+                            r.status === 'success'
+                                ? `${r.symbol}: ${r.improvement_pct >= 0 ? '+' : ''}${r.improvement_pct}%`
+                                : `${r.symbol}: error`
+                        ).join(', ')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        async function init() {
+            await loadSymbols();
+            await loadJobs();
+            await loadLogs();
+
+            // Auto-refresh
+            refreshInterval = setInterval(async () => {
+                await loadJobs();
+            }, 3000);
+
+            // Select first symbol
+            if (symbols.length) {
+                selectSymbol(symbols[0].symbol);
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+[
+  {
+    "timestamp": "2026-02-04T19:29:18.250866",
+    "symbol": "XAUJPY",
+    "params": {
+      "adx_threshold": 30,
+      "slope_threshold": 1.636568093663235e-05,
+      "buy_position": 0.45252743768811776,
+      "sell_position": 0.4588969071035328,
+      "rsi_buy_max": 65,
+      "rsi_sell_min": 21,
+      "tp_mult": 4.0,
+      "sl_mult": 1.2554435645630941,
+      "symbol": "XAUJPY",
+      "mode": "AGGRESSIVE",
+      "updated_at": "2026-02-03",
+      "updated_by": "initial"
+    },
+    "reason": "optimizer auto-apply"
+  },
+  {
+    "timestamp": "2026-02-04T20:26:49.039900",
+    "symbol": "USDJPY",
+    "params": {
+      "adx_threshold": 11,
+      "slope_threshold": 6.861156016987364e-06,
+      "buy_position": 0.3385297335438636,
+      "sell_position": 0.59261714993868,
+      "rsi_buy_max": 77,
+      "rsi_sell_min": 15,
+      "tp_mult": 2.7609977972488013,
+      "sl_mult": 0.8132871673170681,
+      "symbol": "USDJPY",
+      "mode": "AGGRESSIVE",
+      "updated_at": "2026-02-03",
+      "updated_by": "initial"
+    },
+    "reason": "optimizer auto-apply"
+  }
+]
