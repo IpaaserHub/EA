@@ -1,0 +1,203 @@
+{
+  "USDJPY": {
+    "1_baseline": {
+      "trades": 1000,
+      "wins": 446,
+      "losses": 554,
+      "win_rate": 44.6,
+      "profit_factor": 1.03,
+      "total_profit": 3.31,
+      "max_drawdown": 6.89,
+      "avg_win": 0.23,
+      "avg_loss": 0.18
+    },
+    "2_mtf_only": {
+      "trades": 1000,
+      "wins": 442,
+      "losses": 558,
+      "win_rate": 44.2,
+      "profit_factor": 1.04,
+      "total_profit": 4.4,
+      "max_drawdown": 5.54,
+      "avg_win": 0.25,
+      "avg_loss": 0.19
+    },
+    "3_adaptive_only": {
+      "trades": 1000,
+      "wins": 447,
+      "losses": 553,
+      "win_rate": 44.7,
+      "profit_factor": 0.95,
+      "total_profit": -3.84,
+      "max_drawdown": 8.86,
+      "avg_win": 0.16,
+      "avg_loss": 0.14
+    },
+    "4_mtf_adaptive": {
+      "trades": 1000,
+      "wins": 457,
+      "losses": 543,
+      "win_rate": 45.7,
+      "profit_factor": 0.98,
+      "total_profit": -1.71,
+      "max_drawdown": 7.18,
+      "avg_win": 0.17,
+      "avg_loss": 0.15
+    },
+    "5_regime_adjusted": {
+      "trades": 1000,
+      "wins": 452,
+      "losses": 548,
+      "win_rate": 45.2,
+      "profit_factor": 1.01,
+      "total_profit": 0.62,
+      "max_drawdown": 6.41,
+      "avg_win": 0.18,
+      "avg_loss": 0.15
+    },
+    "detected_regime": {
+      "regime": "RANGING",
+      "confidence": 0.911,
+      "features": {
+        "adx": 25.175809,
+        "atr_pct": 0.064851,
+        "slope_abs": 0.016671,
+        "slope_consistency": 1.0
+      }
+    }
+  },
+  "XAUJPY": {
+    "1_baseline": {
+      "trades": 107,
+      "wins": 50,
+      "losses": 57,
+      "win_rate": 46.73,
+      "profit_factor": 1.23,
+      "total_profit": 23869.21,
+      "max_drawdown": 12870.64,
+      "avg_win": 2534.75,
+      "avg_loss": 1804.71
+    },
+    "2_mtf_only": {
+      "trades": 88,
+      "wins": 39,
+      "losses": 49,
+      "win_rate": 44.32,
+      "profit_factor": 1.08,
+      "total_profit": 7400.57,
+      "max_drawdown": 20526.75,
+      "avg_win": 2529.68,
+      "avg_loss": 1862.39
+    },
+    "3_adaptive_only": {
+      "trades": 124,
+      "wins": 54,
+      "losses": 70,
+      "win_rate": 43.55,
+      "profit_factor": 1.11,
+      "total_profit": 9220.07,
+      "max_drawdown": 17584.39,
+      "avg_win": 1787.16,
+      "avg_loss": 1246.95
+    },
+    "4_mtf_adaptive": {
+      "trades": 99,
+      "wins": 41,
+      "losses": 58,
+      "win_rate": 41.41,
+      "profit_factor": 0.96,
+      "total_profit": -2858.96,
+      "max_drawdown": 21565.14,
+      "avg_win": 1743.34,
+      "avg_loss": 1281.65
+    },
+    "5_regime_adjusted": {
+      "trades": 84,
+      "wins": 42,
+      "losses": 42,
+      "win_rate": 50.0,
+      "profit_factor": 1.23,
+      "total_profit": 14172.7,
+      "max_drawdown": 13747.32,
+      "avg_win": 1804.12,
+      "avg_loss": 1466.68
+    },
+    "detected_regime": {
+      "regime": "RANGING",
+      "confidence": 0.41,
+      "features": {
+        "adx": 8.447768,
+        "atr_pct": 0.291573,
+        "slope_abs": 18.82449,
+        "slope_consistency": 0.0
+      }
+    }
+  },
+  "BTCJPY": {
+    "1_baseline": {
+      "trades": 1000,
+      "wins": 466,
+      "losses": 534,
+      "win_rate": 46.6,
+      "profit_factor": 1.1,
+      "total_profit": 3596181.79,
+      "max_drawdown": 1689981.36,
+      "avg_win": 88902.37,
+      "avg_loss": 70847.04
+    },
+    "2_mtf_only": {
+      "trades": 920,
+      "wins": 437,
+      "losses": 483,
+      "win_rate": 47.5,
+      "profit_factor": 1.1,
+      "total_profit": 3574290.46,
+      "max_drawdown": 2083345.25,
+      "avg_win": 87404.03,
+      "avg_loss": 71679.65
+    },
+    "3_adaptive_only": {
+      "trades": 1000,
+      "wins": 452,
+      "losses": 548,
+      "win_rate": 45.2,
+      "profit_factor": 1.0,
+      "total_profit": -29766.25,
+      "max_drawdown": 1862425.54,
+      "avg_win": 64434.3,
+      "avg_loss": 53200.85
+    },
+    "4_mtf_adaptive": {
+      "trades": 1000,
+      "wins": 469,
+      "losses": 531,
+      "win_rate": 46.9,
+      "profit_factor": 1.03,
+      "total_profit": 896903.46,
+      "max_drawdown": 1628933.32,
+      "avg_win": 63916.68,
+      "avg_loss": 54764.63
+    },
+    "5_regime_adjusted": {
+      "trades": 1000,
+      "wins": 471,
+      "losses": 529,
+      "win_rate": 47.1,
+      "profit_factor": 1.09,
+      "total_profit": 2442504.64,
+      "max_drawdown": 1581326.05,
+      "avg_win": 65281.01,
+      "avg_loss": 53506.34
+    },
+    "detected_regime": {
+      "regime": "TRENDING",
+      "confidence": 0.791,
+      "features": {
+        "adx": 38.662164,
+        "atr_pct": 0.209121,
+        "slope_abs": 6447.117119,
+        "slope_consistency": 1.0
+      }
+    }
+  }
+}

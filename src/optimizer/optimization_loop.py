@@ -29,6 +29,7 @@ from backtest.data_loader import load_prices, find_data_file
 from backtest.engine import BacktestEngine, BacktestResult
 from optimizer.optuna_optimizer import OptunaOptimizer, HybridOptimizer, OptimizationResult
 from optimizer.ai_analyzer import AIAnalyzer, AnalysisResult
+from optimizer.walk_forward import WalkForwardOptimizer, WalkForwardResult
 
 logger = logging.getLogger(__name__)
 
@@ -44,13 +45,14 @@ class OptimizationRun:
     improvement_pct: float
     optimization_result: OptimizationResult
     ai_analysis: Optional[AnalysisResult]
+    walk_forward_result: Optional[WalkForwardResult]
     applied: bool
     reason: str
     timestamp: str
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for JSON serialization."""
-        return {
+        d = {
             "symbol": self.symbol,
             "old_params": self.old_params,
             "new_params": self.new_params,
@@ -61,6 +63,9 @@ class OptimizationRun:
             "reason": self.reason,
             "timestamp": self.timestamp,
         }
+        if self.walk_forward_result:
+            d["walk_forward"] = self.walk_forward_result.to_dict()
+        return d
 
 
 class OptimizationLoop:
@@ -84,6 +89,9 @@ class OptimizationLoop:
         config_dir: str = "config/params",
         openai_api_key: Optional[str] = None,
         use_ai: bool = True,
+        wfo_enabled: bool = True,
+        wfo_n_splits: int = 5,
+        wfo_min_robustness: float = 0.5,
     ):
         """
         Initialize optimization loop.
@@ -93,10 +101,16 @@ class OptimizationLoop:
             config_dir: Directory containing parameter JSON files
             openai_api_key: OpenAI API key for AI analysis
             use_ai: Whether to use AI analysis (default True)
+            wfo_enabled: Whether to run walk-forward validation (default True)
+            wfo_n_splits: Number of walk-forward folds
+            wfo_min_robustness: Minimum robustness ratio to pass validation
         """
         self.data_dir = data_dir
         self.config_dir = config_dir
         self.use_ai = use_ai
+        self.wfo_enabled = wfo_enabled
+        self.wfo_n_splits = wfo_n_splits
+        self.wfo_min_robustness = wfo_min_robustness
 
         # Initialize parameter manager
         self.param_manager = ParamManager(config_dir)
@@ -113,6 +127,7 @@ class OptimizationLoop:
         ai_refinement_trials: int = 10,
         auto_apply: bool = False,
         min_improvement: Optional[float] = None,
+        run_walk_forward: bool = True,
     ) -> OptimizationRun:
         """
         Run optimization for a single symbol.
@@ -123,6 +138,7 @@ class OptimizationLoop:
             ai_refinement_trials: Number of AI refinement trials
             auto_apply: Automatically apply improvements (default False)
             min_improvement: Minimum improvement % to apply (overrides class default)
+            run_walk_forward: Whether to run walk-forward validation (default True)
 
         Returns:
             OptimizationRun with complete results
@@ -205,6 +221,27 @@ class OptimizationLoop:
 
         logger.info(f"Optimized: PF={new_result.profit_factor:.2f}, WR={new_result.win_rate:.1f}%, Improvement={improvement_pct:.1f}%")
 
+        # Walk-forward validation
+        wf_result = None
+        if self.wfo_enabled and run_walk_forward:
+            logger.info(f"Running walk-forward validation ({self.wfo_n_splits} folds)...")
+
+            def wfo_backtest_fn(wfo_prices, wfo_params):
+                wfo_engine = BacktestEngine(wfo_prices)
+                return wfo_engine.run(wfo_params)
+
+            wfo = WalkForwardOptimizer(
+                n_splits=self.wfo_n_splits,
+                optuna_trials=max(n_trials // 3, 10),
+            )
+            wf_result = wfo.run(prices, wfo_backtest_fn, new_params)
+
+            logger.info(
+                f"Walk-forward: robustness={wf_result.robustness_ratio:.2f}, "
+                f"out_pf={wf_result.avg_out_sample_pf:.2f}, "
+                f"robust={wf_result.is_robust}"
+            )
+
         # Get AI analysis if available
         ai_analysis = None
         if self.ai_analyzer:
@@ -226,6 +263,15 @@ class OptimizationLoop:
             reason = f"Drawdown increased too much"
         elif new_result.profit_factor < 1.0:
             reason = f"New profit factor below 1.0"
+        elif self.wfo_enabled and run_walk_forward and wf_result and not wf_result.is_robust:
+            reason = (
+                f"Walk-forward failed (robustness={wf_result.robustness_ratio:.2f}, "
+                f"min={self.wfo_min_robustness}, out_pf={wf_result.avg_out_sample_pf:.2f})"
+            )
+        elif self.wfo_enabled and run_walk_forward and wf_result and wf_result.robustness_ratio < self.wfo_min_robustness:
+            reason = (
+                f"Walk-forward robustness too low ({wf_result.robustness_ratio:.2f} < {self.wfo_min_robustness})"
+            )
         else:
             reason = "Meets all criteria"
             if auto_apply:
@@ -243,6 +289,7 @@ class OptimizationLoop:
             improvement_pct=improvement_pct,
             optimization_result=opt_result,
             ai_analysis=ai_analysis,
+            walk_forward_result=wf_result,
             applied=applied,
             reason=reason,
             timestamp=timestamp,
@@ -255,6 +302,7 @@ class OptimizationLoop:
         symbols: Optional[List[str]] = None,
         n_trials: int = 50,
         auto_apply: bool = False,
+        run_walk_forward: bool = True,
     ) -> List[OptimizationRun]:
         """
         Run optimization for multiple symbols.
@@ -263,6 +311,7 @@ class OptimizationLoop:
             symbols: List of symbols to optimize (None = auto-detect)
             n_trials: Number of trials per symbol
             auto_apply: Automatically apply improvements
+            run_walk_forward: Whether to run walk-forward validation
 
         Returns:
             List of OptimizationRun results
@@ -282,6 +331,7 @@ class OptimizationLoop:
                     symbol,
                     n_trials=n_trials,
                     auto_apply=auto_apply,
+                    run_walk_forward=run_walk_forward,
                 )
                 results.append(run)
             except Exception as e:
@@ -372,5 +422,13 @@ def print_run_summary(run: OptimizationRun) -> None:
         for key in run.new_params:
             if key in run.old_params and run.old_params[key] != run.new_params[key]:
                 print(f"  {key}: {run.old_params[key]} -> {run.new_params[key]}")
+
+    if run.walk_forward_result:
+        wf = run.walk_forward_result
+        print(f"\nWalk-Forward Validation:")
+        print(f"  Robustness Ratio: {wf.robustness_ratio:.2f}")
+        print(f"  Avg In-sample PF: {wf.avg_in_sample_pf:.2f}")
+        print(f"  Avg Out-sample PF: {wf.avg_out_sample_pf:.2f}")
+        print(f"  Result: {'PASS' if wf.is_robust else 'FAIL'}")
 
     print(f"{'='*60}\n")

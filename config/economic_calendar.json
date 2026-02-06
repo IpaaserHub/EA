@@ -1,0 +1,101 @@
+{
+  "events": [
+    {
+      "name": "NFP",
+      "currency": "USD",
+      "impact": "HIGH",
+      "schedule": "first_friday_monthly",
+      "time_utc": "13:30",
+      "pause_before_min": 60,
+      "pause_after_min": 120
+    },
+    {
+      "name": "FOMC Rate Decision",
+      "currency": "USD",
+      "impact": "HIGH",
+      "dates_2026": [
+        "2026-01-29", "2026-03-18", "2026-05-06",
+        "2026-06-17", "2026-07-29", "2026-09-16",
+        "2026-11-04", "2026-12-16"
+      ],
+      "time_utc": "19:00",
+      "pause_before_min": 60,
+      "pause_after_min": 120
+    },
+    {
+      "name": "CPI",
+      "currency": "USD",
+      "impact": "HIGH",
+      "schedule": "monthly",
+      "dates_2026": [
+        "2026-01-14", "2026-02-12", "2026-03-12",
+        "2026-04-10", "2026-05-13", "2026-06-11",
+        "2026-07-14", "2026-08-12", "2026-09-10",
+        "2026-10-13", "2026-11-12", "2026-12-10"
+      ],
+      "time_utc": "13:30",
+      "pause_before_min": 30,
+      "pause_after_min": 60
+    },
+    {
+      "name": "BOJ Rate Decision",
+      "currency": "JPY",
+      "impact": "HIGH",
+      "dates_2026": [
+        "2026-01-24", "2026-03-14", "2026-04-28",
+        "2026-06-16", "2026-07-17", "2026-09-17",
+        "2026-10-29", "2026-12-18"
+      ],
+      "time_utc": "03:00",
+      "pause_before_min": 60,
+      "pause_after_min": 60
+    },
+    {
+      "name": "GDP (US)",
+      "currency": "USD",
+      "impact": "HIGH",
+      "schedule": "quarterly",
+      "dates_2026": [
+        "2026-01-30", "2026-03-26", "2026-04-29",
+        "2026-06-25", "2026-07-30", "2026-09-30",
+        "2026-10-29", "2026-12-23"
+      ],
+      "time_utc": "13:30",
+      "pause_before_min": 30,
+      "pause_after_min": 60
+    },
+    {
+      "name": "ECB Rate Decision",
+      "currency": "EUR",
+      "impact": "HIGH",
+      "dates_2026": [
+        "2026-01-30", "2026-03-06", "2026-04-17",
+        "2026-06-05", "2026-07-17", "2026-09-11",
+        "2026-10-30", "2026-12-18"
+      ],
+      "time_utc": "13:15",
+      "pause_before_min": 60,
+      "pause_after_min": 120
+    },
+    {
+      "name": "Japan CPI",
+      "currency": "JPY",
+      "impact": "HIGH",
+      "schedule": "monthly",
+      "dates_2026": [
+        "2026-01-24", "2026-02-21", "2026-03-20",
+        "2026-04-17", "2026-05-22", "2026-06-19",
+        "2026-07-17", "2026-08-21", "2026-09-18",
+        "2026-10-23", "2026-11-20", "2026-12-18"
+      ],
+      "time_utc": "23:30",
+      "pause_before_min": 30,
+      "pause_after_min": 60
+    }
+  ],
+  "currency_map": {
+    "USDJPY": ["USD", "JPY"],
+    "XAUJPY": ["XAU", "JPY", "USD"],
+    "BTCJPY": ["BTC", "JPY", "USD"]
+  }
+}

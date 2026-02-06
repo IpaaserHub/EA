@@ -1,15 +1,14 @@
 {
+  "adx_threshold": 25,
+  "slope_threshold": 5.12469136475206e-05,
+  "buy_position": 0.5419273764542669,
+  "sell_position": 0.40474053757245987,
+  "rsi_buy_max": 82,
+  "rsi_sell_min": 35,
+  "tp_mult": 2.6949359878747563,
+  "sl_mult": 0.862710506508798,
   "symbol": "BTCJPY",
   "mode": "AGGRESSIVE",
   "updated_at": "2026-02-03",
-  "updated_by": "initial",
-
-  "adx_threshold": 10,
-  "slope_threshold": 0.00002,
-  "buy_position": 0.50,
-  "sell_position": 0.50,
-  "rsi_buy_max": 75,
-  "rsi_sell_min": 25,
-  "tp_mult": 2.0,
-  "sl_mult": 1.5
+  "updated_by": "initial"
 }

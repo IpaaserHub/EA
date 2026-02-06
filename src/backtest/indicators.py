@@ -196,6 +196,55 @@ def calculate_position_in_range(prices: List[Dict], lookback: int = 20) -> float
     return (current_price - low) / (high - low)
 
 
+def aggregate_candles(
+    h1_candles: List[Dict],
+    target_tf: str = "H4",
+) -> List[Dict]:
+    """
+    Aggregate H1 candles into higher timeframe candles.
+
+    Groups H1 candles into fixed-size blocks and computes OHLC.
+    Only returns COMPLETED groups (no partial/repainting candles).
+
+    Args:
+        h1_candles: List of H1 OHLC dicts with open/high/low/close keys
+        target_tf: Target timeframe - "H4" (groups of 4) or "D1" (groups of 24)
+
+    Returns:
+        List of aggregated OHLC dicts
+    """
+    if target_tf == "H4":
+        group_size = 4
+    elif target_tf == "D1":
+        group_size = 24
+    else:
+        raise ValueError(f"Unsupported timeframe: {target_tf}. Use 'H4' or 'D1'.")
+
+    if len(h1_candles) < group_size:
+        return []
+
+    aggregated = []
+
+    # Align from the END so the most recent complete group is included.
+    # Drop the last partial group (incomplete = potential repainting).
+    remainder = len(h1_candles) % group_size
+    start = remainder
+
+    for i in range(start, len(h1_candles), group_size):
+        group = h1_candles[i:i + group_size]
+        if len(group) < group_size:
+            break
+
+        aggregated.append({
+            "open": group[0]["open"],
+            "high": max(c["high"] for c in group),
+            "low": min(c["low"] for c in group),
+            "close": group[-1]["close"],
+        })
+
+    return aggregated
+
+
 def calculate_all_indicators(prices: List[Dict], lookback: int = 50) -> Dict:
     """
     Calculate all indicators at once.

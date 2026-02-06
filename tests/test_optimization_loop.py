@@ -131,6 +131,7 @@ class TestOptimizationRun:
             improvement_pct=50.0,
             optimization_result=opt_result,
             ai_analysis=None,
+            walk_forward_result=None,
             applied=False,
             reason="Test",
             timestamp="2025-01-01T00:00:00",
@@ -171,6 +172,7 @@ class TestOptimizationRun:
             improvement_pct=50.0,
             optimization_result=opt_result,
             ai_analysis=None,
+            walk_forward_result=None,
             applied=False,
             reason="Test",
             timestamp="2025-01-01T00:00:00",
@@ -223,7 +225,7 @@ class TestSingleSymbolOptimization:
     def test_optimize_symbol_returns_run(self, setup_test_symbol):
         """optimize_symbol() should return OptimizationRun."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         run = loop.optimize_symbol(symbol, n_trials=5)
 
@@ -233,7 +235,7 @@ class TestSingleSymbolOptimization:
     def test_optimize_symbol_has_results(self, setup_test_symbol):
         """Should have old and new results."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         run = loop.optimize_symbol(symbol, n_trials=5)
 
@@ -245,7 +247,7 @@ class TestSingleSymbolOptimization:
     def test_optimize_symbol_calculates_improvement(self, setup_test_symbol):
         """Should calculate improvement percentage."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         run = loop.optimize_symbol(symbol, n_trials=5)
 
@@ -254,7 +256,7 @@ class TestSingleSymbolOptimization:
     def test_optimize_raises_on_missing_data_or_params(self, temp_dirs):
         """Should raise error if no data or params found."""
         data_dir, config_dir = temp_dirs
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         # ParamManager returns defaults if no config file exists,
         # so the error will be about missing data
@@ -270,7 +272,7 @@ class TestSingleSymbolOptimization:
         with open(param_file, 'w') as f:
             json.dump(sample_params, f)
 
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         with pytest.raises(ValueError, match="No data file found"):
             loop.optimize_symbol("TEST", n_trials=5)
@@ -286,7 +288,7 @@ class TestSafetyValidation:
         symbol, data_dir, config_dir = setup_test_symbol
 
         # Create loop with high minimum trades requirement
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
         loop.MIN_TRADES = 1000  # Very high
 
         run = loop.optimize_symbol(symbol, n_trials=3, auto_apply=True)
@@ -298,7 +300,7 @@ class TestSafetyValidation:
         """Should not apply if improvement too small (or other safety criteria fail)."""
         symbol, data_dir, config_dir = setup_test_symbol
 
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
         loop.MIN_IMPROVEMENT_PCT = 1000  # Very high requirement
 
         run = loop.optimize_symbol(symbol, n_trials=3, auto_apply=True)
@@ -331,7 +333,7 @@ class TestMultiSymbolOptimization:
             with open(data_file, 'w') as f:
                 f.write(sample_price_data)
 
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
         results = loop.optimize_all_symbols(n_trials=3)
 
         assert len(results) == 2
@@ -348,7 +350,7 @@ class TestApplyAndRollback:
     def test_apply_run(self, setup_test_symbol):
         """apply_run() should save new parameters."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         run = loop.optimize_symbol(symbol, n_trials=3, auto_apply=False)
 
@@ -361,7 +363,7 @@ class TestApplyAndRollback:
     def test_apply_already_applied(self, setup_test_symbol):
         """Should not re-apply already applied run."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         run = loop.optimize_symbol(symbol, n_trials=3, auto_apply=True)
 
@@ -372,7 +374,7 @@ class TestApplyAndRollback:
     def test_rollback(self, setup_test_symbol):
         """rollback() should restore previous parameters."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         # First optimization
         run1 = loop.optimize_symbol(symbol, n_trials=3, auto_apply=True)
@@ -406,7 +408,7 @@ class TestConvenienceFunctions:
     def test_print_run_summary(self, setup_test_symbol, capsys):
         """print_run_summary() should output summary."""
         symbol, data_dir, config_dir = setup_test_symbol
-        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False)
+        loop = OptimizationLoop(data_dir=data_dir, config_dir=config_dir, use_ai=False, wfo_enabled=False)
 
         run = loop.optimize_symbol(symbol, n_trials=3)
         print_run_summary(run)

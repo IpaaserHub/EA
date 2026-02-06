@@ -11,6 +11,11 @@ import os
 import json
 import re
 
+# --- AI Modules (built 2026-02-06) ---
+from src.ai.news_filter import NewsFilter
+from src.ai.regime_detector import RegimeDetector
+from src.optimizer.report_generator import ReportGenerator
+
 # --- 【重要】AI設定エリア ---
 
 # 1. どちらのAIを使うか選ぶ ("openai" または "google")
@@ -21,7 +26,7 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "your-openai-api-key-here")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "your-google-api-key-here") 
 
 # 3. 自分の口座ID (例: 75449373)
-ALLOWED_ACCOUNTS = [75449373] 
+ALLOWED_ACCOUNTS = [75449373, 75480718]
 
 # --- 設定 ---
 DATABASE_NAME = "trading_log.db"
@@ -118,13 +123,50 @@ ENTRY_PARAMS_AGGRESSIVE = {
     }
 }
 
+CONFIG_PARAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config", "params")
+
+def _load_optimized_params(symbol: str) -> dict:
+    """config/params/{symbol}.jsonから最適化済みパラメータを読み込む"""
+    filepath = os.path.join(CONFIG_PARAMS_DIR, f"{symbol}.json")
+    if not os.path.exists(filepath):
+        return None
+    try:
+        with open(filepath, 'r') as f:
+            params = json.load(f)
+        # 必須キーが全て揃っているか確認
+        required = ["adx_threshold", "slope_threshold", "buy_position",
+                     "sell_position", "rsi_buy_max", "rsi_sell_min", "tp_mult", "sl_mult"]
+        if all(k in params for k in required):
+            # rsi_extreme_avoidはoptimizer対象外なのでデフォルト付与
+            if "rsi_extreme_avoid" not in params:
+                params["rsi_extreme_avoid"] = False
+            return params
+    except Exception as e:
+        logging.getLogger(__name__).warning(f"Failed to load optimized params for {symbol}: {e}")
+    return None
+
 def get_entry_params(mode: str = None):
-    """トレードモードに応じたパラメータを取得"""
+    """トレードモードに応じたパラメータを取得（optimizer出力を優先）"""
     if mode is None:
         mode = TRADE_MODE
+    # ベースとなるハードコード値
     if mode == "AGGRESSIVE":
-        return ENTRY_PARAMS_AGGRESSIVE
-    return ENTRY_PARAMS_STABLE
+        base = ENTRY_PARAMS_AGGRESSIVE
+    else:
+        base = ENTRY_PARAMS_STABLE
+
+    # config/params/から最適化済みパラメータを上書き
+    result = dict(base)  # shallow copy
+    for symbol_file in os.listdir(CONFIG_PARAMS_DIR) if os.path.isdir(CONFIG_PARAMS_DIR) else []:
+        if not symbol_file.endswith('.json') or symbol_file == 'optimization_history.json':
+            continue
+        symbol = symbol_file.replace('.json', '')
+        optimized = _load_optimized_params(symbol)
+        if optimized:
+            result[symbol] = optimized
+            logging.getLogger(__name__).info(f"📊 Loaded optimized params for {symbol} (updated: {optimized.get('updated_at', '?')})")
+
+    return result
 
 # 後方互換性のためのエイリアス
 ENTRY_PARAMS_V10 = ENTRY_PARAMS_STABLE
@@ -135,6 +177,10 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="AI Trading Server (Ultimate Ver)", version="8.0.0")  # v8.0: 完全ルールベース（ADX+RSI+MA）、AI判断なし
+
+# --- AI Module Instances ---
+news_filter = NewsFilter("config/economic_calendar.json")
+regime_detectors = {}  # Per-symbol, lazy-fitted: {"USDJPY": RegimeDetector, ...}
 
 # --- ヘルスチェック ---
 @app.get("/")
@@ -192,6 +238,8 @@ class MarketData(BaseModel):
 
 class TradeSignal(BaseModel):
     action: str; sl_price: float; tp_price: float; comment: str; server_time: str
+    regime: str = ""          # "TRENDING", "RANGING", "VOLATILE"
+    news_status: str = ""     # "" if clear, or "NFP in 45min" etc.
 class HistoryData(BaseModel):
     account_id: int; symbol: str; prices: List[float]
 
@@ -1070,19 +1118,26 @@ def rule_based_exit_decision_v9(
         result["partial_ratio"] = params["partial_ratio"]
         return result
 
-    # ====== 4. トレーリングストップ ======
+    # ====== 4. トレーリングストップ（ATR対応） ======
     if profit >= params["trailing_start"]:
+        # ATRベースのトレーリング距離（利用可能な場合）、固定距離をフォールバック
+        trail_distance = params["trailing_distance"]
+        if prices and len(prices) >= ATR_PERIOD + 1:
+            atr_val = calculate_atr(prices, ATR_PERIOD)
+            if atr_val > 0:
+                trail_distance = atr_val * 1.0  # ATR x 1.0
+
         # 最高利益更新時、SLを追従
         if profit > max_profit_seen:
             if position_type == "BUY":
-                new_sl = current_price - params["trailing_distance"]
+                new_sl = current_price - trail_distance
                 if new_sl > current_sl:
                     result["action"] = "MODIFY_SL"
                     result["reason"] = f"v9_Trail(SL→{new_sl:.0f})"
                     result["new_sl"] = new_sl
                     return result
             else:  # SELL
-                new_sl = current_price + params["trailing_distance"]
+                new_sl = current_price + trail_distance
                 if new_sl < current_sl:
                     result["action"] = "MODIFY_SL"
                     result["reason"] = f"v9_Trail(SL→{new_sl:.0f})"
@@ -1302,13 +1357,20 @@ def analyze_market_logic(data: MarketData) -> dict:
     in_cooldown, cooldown_msg = is_in_cooldown(symbol)
     if in_cooldown:
         logger.info(f"🛑 {symbol}: {cooldown_msg}")
-        return {"action": "NO_TRADE", "comment": cooldown_msg, "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": cooldown_msg, "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": "", "news_status": ""}
+
+    # --- ニュースフィルター（経済イベント前後は取引停止） ---
+    can_trade, news_reason = news_filter.should_trade(symbol, datetime.datetime.utcnow())
+    news_status_str = news_reason if not can_trade else ""
+    if not can_trade:
+        logger.info(f"📰 {symbol}: {news_reason}")
+        return {"action": "NO_TRADE", "comment": f"News:{news_reason}", "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": "", "news_status": news_status_str}
 
     # --- ポジション数チェック（銘柄別の上限） ---
     can_open, pos_msg = can_open_new_position(symbol, data.positions)
     if not can_open:
         logger.info(f"🚫 {symbol}: {pos_msg}")
-        return {"action": "NO_TRADE", "comment": pos_msg, "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": pos_msg, "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": "", "news_status": ""}
 
     # 2. 閾値（エントリー条件）の決定
     buy_thresh = current_settings["buy_thresh"]
@@ -1322,13 +1384,13 @@ def analyze_market_logic(data: MarketData) -> dict:
     history = price_history[symbol]
 
     if len(history) < symbol_history_size:
-        return {"action": "NO_TRADE", "comment": f"Learning... ({len(history)}/{symbol_history_size})", "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": f"Learning... ({len(history)}/{symbol_history_size})", "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": "", "news_status": ""}
 
     # --- 時間帯フィルター ---
     is_active_time, session_info = is_active_trading_time(symbol)
     if not is_active_time:
         logger.info(f"⏰ {symbol}: {session_info} - 取引時間外")
-        return {"action": "NO_TRADE", "comment": session_info, "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": session_info, "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": "", "news_status": ""}
 
     highest, lowest = find_high_low(history)
     price_range = highest - lowest
@@ -1351,23 +1413,46 @@ def analyze_market_logic(data: MarketData) -> dict:
     entry_params = get_entry_params()  # TRADE_MODEに応じたパラメータ取得
     params = entry_params.get(symbol, entry_params["DEFAULT"])
 
+    # --- レジーム検出（パラメータ自動調整） ---
+    detected_regime = ""
+    try:
+        if symbol not in regime_detectors:
+            regime_detectors[symbol] = RegimeDetector(window_size=50)
+
+        detector = regime_detectors[symbol]
+
+        # Lazy-fit: 初回のみ学習（price historyからcandle dictsを構築）
+        if not detector.is_fitted and len(history) >= 100:
+            candles = [{"open": p, "high": p, "low": p, "close": p} for p in history]
+            detector.fit(candles)
+            logger.info(f"🧠 RegimeDetector fitted for {symbol} ({len(history)} candles)")
+
+        if detector.is_fitted and len(history) >= 50:
+            candles = [{"open": p, "high": p, "low": p, "close": p} for p in history]
+            regime_result = detector.detect(candles)
+            detected_regime = regime_result.regime  # "TRENDING", "RANGING", "VOLATILE"
+            params = detector.get_regime_params(regime_result.regime, params)
+            logger.info(f"🧠 Regime: {symbol} = {regime_result.regime} (conf={regime_result.confidence:.2f}) → params adjusted")
+    except Exception as e:
+        logger.warning(f"RegimeDetector error for {symbol}: {e}")
+
     # --- v10.0: ADXフィルター（厳格化） ---
     adx_threshold = params["adx_threshold"]
     if adx < adx_threshold:
         logger.info(f"📉 v10: {symbol}: ADX={adx:.1f} < {adx_threshold} → 弱トレンド、見送り")
-        return {"action": "NO_TRADE", "comment": f"v10_ADX{adx:.0f}", "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": f"v10_ADX{adx:.0f}", "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": detected_regime, "news_status": news_status_str}
 
     # --- v10.0: RSI極端値フィルター（全シンボル共通） ---
     if params["rsi_extreme_avoid"] and (rsi < 25 or rsi > 75):
         logger.info(f"📉 v10: {symbol}: RSI={rsi:.1f} → 極端値、見送り")
-        return {"action": "NO_TRADE", "comment": f"v10_RSI{rsi:.0f}", "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": f"v10_RSI{rsi:.0f}", "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": detected_regime, "news_status": news_status_str}
 
     # --- v10.0: Slopeフィルター（厳格化） ---
     slope_threshold = params["slope_threshold"]
     abs_slope = abs(slope)
     if abs_slope < slope_threshold:
         logger.info(f"📉 v10: {symbol}: Slope={slope:.5f} → トレンド不明確、見送り")
-        return {"action": "NO_TRADE", "comment": f"v10_Slope", "sl": 0.0, "tp": 0.0, "used_persona": use_persona}
+        return {"action": "NO_TRADE", "comment": f"v10_Slope", "sl": 0.0, "tp": 0.0, "used_persona": use_persona, "regime": detected_regime, "news_status": news_status_str}
 
     # --- v10.0: エントリー判断（厳格版） ---
     # BUY条件: 強い上昇トレンド + 深い安値圏 + RSI過熱なし
@@ -1398,7 +1483,7 @@ def analyze_market_logic(data: MarketData) -> dict:
         comment = trend
         logger.info(f"✅ v10.0 Entry: {signal} | ADX={adx:.1f} | SL={sl:.5f} | TP={tp:.5f}")
 
-    return {"action": signal, "sl": round(sl,5), "tp": round(tp,5), "comment": comment, "used_persona": use_persona}
+    return {"action": signal, "sl": round(sl,5), "tp": round(tp,5), "comment": comment, "used_persona": use_persona, "regime": detected_regime, "news_status": news_status_str}
 
 @app.get("/dashboard", response_class=HTMLResponse)
 async def get_dashboard():
@@ -1748,12 +1833,41 @@ def check_exit(data: ExitCheckRequest):
         "partial_ratio": result["partial_ratio"]
     }
 
+# ============================================================
+# Report endpoint: AI-generated optimization report (Japanese)
+# ============================================================
+@app.get("/report/{symbol}")
+def get_optimization_report(symbol: str):
+    """Generate Japanese optimization report for a symbol."""
+    history_path = os.path.join(CONFIG_PARAMS_DIR, "optimization_history.json")
+    if not os.path.exists(history_path):
+        return {"error": "No optimization history found"}
+
+    try:
+        with open(history_path, "r") as f:
+            history = json.load(f)
+    except Exception as e:
+        return {"error": f"Failed to load history: {e}"}
+
+    # Find the latest run for this symbol
+    runs = [r for r in history if r.get("symbol") == symbol]
+    if not runs:
+        return {"error": f"No optimization runs found for {symbol}"}
+
+    latest_run = runs[-1]
+
+    generator = ReportGenerator(api_key=OPENAI_API_KEY)
+    report = generator.generate(latest_run)
+
+    return {"symbol": symbol, "report": report}
+
+
 @app.post("/signal", response_model=TradeSignal)
 def get_signal(data: MarketData):
     if data.account_id not in ALLOWED_ACCOUNTS: return {"action": "NO_TRADE", "sl_price": 0, "tp_price": 0, "comment": "License Invalid", "server_time": str(datetime.datetime.now())}
     result = analyze_market_logic(data)
     save_log(data, result, result["used_persona"])
-    return {"action": result["action"], "sl_price": result["sl"], "tp_price": result["tp"], "comment": result["comment"], "server_time": str(datetime.datetime.now())}
+    return {"action": result["action"], "sl_price": result["sl"], "tp_price": result["tp"], "comment": result["comment"], "server_time": str(datetime.datetime.now()), "regime": result.get("regime", ""), "news_status": result.get("news_status", "")}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -31,7 +31,10 @@
       "Bash(timeout 120 python:*)",
       "Bash(timeout 180 python:*)",
       "Bash(wc:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(python3:*)",
+      "Bash(.venv/bin/python -m pytest:*)",
+      "Bash(.venv/bin/python:*)"
     ]
   }
 }

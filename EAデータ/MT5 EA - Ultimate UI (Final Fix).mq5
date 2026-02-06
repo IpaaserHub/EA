@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
 //|                                          AI_Trading_Bot_UI.mq5    |
-//|           AI Driven Expert Advisor (Ver 6.40 AI Exit Decision)    |
+//|           AI Driven Expert Advisor (Ver 7.00 AI Exit Decision)    |
 //|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
 #property copyright "Copyright 2025, AI Project"
-#property version   "6.40"
+#property version   "7.00"
 #property strict
 
 //--- 性格モード
@@ -52,6 +52,8 @@ string StatusLabel = "StatusLabel";
 string MsgLabel = "MsgLabel";
 string BtnPanic = "BtnPanic";
 string BtnExport = "BtnExport"; // CSV出力ボタン
+string RegimeLabel = "RegimeLabel"; // v7.0: レジーム表示
+string NewsLabel = "NewsLabel";     // v7.0: ニュース状態表示
 
 //--- グローバル変数（ここにday_of_yearがあることを確認！）
 datetime last_bar_time = 0;
@@ -60,7 +62,14 @@ double   initial_balance_day = 0;
 int      day_of_year = 0;          // ★日付管理用変数
 bool     is_stopped_today = false;
 bool     is_history_sent = false;
-datetime last_exit_check_time = 0; // AI決済チェック用タイムスタンプ 
+datetime last_exit_check_time = 0; // AI決済チェック用タイムスタンプ
+
+//--- v7.0: Per-position state tracking (parallel arrays)
+#define MAX_TRACKED_POSITIONS 20
+ulong  tracked_tickets[MAX_TRACKED_POSITIONS];
+double tracked_max_profit[MAX_TRACKED_POSITIONS];
+bool   tracked_partial_closed[MAX_TRACKED_POSITIONS];
+int    tracked_count = 0;
 
 //--- 関数プロトタイプ
 void CheckNewDay();
@@ -82,13 +91,18 @@ void ExportHistoryToCSV();
 void ReportTradeResult(string symbol, bool is_loss); // クールダウン用結果報告
 void CheckAIExitSignals();  // Phase 2.3: AI決済判断
 bool ClosePositionByTicket(ulong ticket); // 個別ポジション決済
+bool PartialCloseByTicket(ulong ticket, double ratio); // v7.0: 分割決済
+int  FindTrackedIndex(ulong ticket);          // v7.0: 追跡インデックス検索
+void AddTrackedPosition(ulong ticket);        // v7.0: 追跡追加
+void RemoveTrackedPosition(ulong ticket);     // v7.0: 追跡削除
+void CleanupTrackedPositions();               // v7.0: 追跡クリーンアップ
 
 //+------------------------------------------------------------------+
 //| 初期化                                                            |
 //+------------------------------------------------------------------+
 int OnInit()
   {
-   Print("AI EA (Ver 6.40 AI Exit Decision) Initialized.");
+   Print("AI EA (Ver 7.00 AI Exit Decision) Initialized.");
    initial_balance_day = AccountInfoDouble(ACCOUNT_BALANCE);
    
    // 日付初期化
@@ -111,8 +125,12 @@ int OnInit()
    
    // CSV出力ボタン（緊急停止ボタンの下）
    CreateButton("BtnExport", "📄 CSV", 10, 80, 60, 25, C'100,100,100', clrWhite, CORNER_RIGHT_UPPER, 8);
-   
-   UpdateButtonState(); 
+
+   // v7.0: レジーム・ニュースラベル
+   CreateLabel(RegimeLabel, "Regime: ---", 10, 95, 9, clrWhite);
+   CreateLabel(NewsLabel, "News: Clear", 10, 115, 9, C'46,204,113');
+
+   UpdateButtonState();
    ChartRedraw();
    
    // ★新規追加: 1秒ごとのタイマーイベントを設定（土日や値動きがない時でも通信するため）
@@ -133,6 +151,8 @@ void OnDeinit(const int reason)
    ObjectDelete(0, "MsgLabel");
    ObjectDelete(0, "BtnPanic");
    ObjectDelete(0, "BtnExport");
+   ObjectDelete(0, RegimeLabel);
+   ObjectDelete(0, NewsLabel);
    Print("AI EA Stopped.");
   }
 
@@ -389,12 +409,46 @@ string GetSignalFromServer()
 void ProcessSignal(string json)
 {
    if(json == "") return;
-   
+
    string action = ParseJsonString(json, "action");
    string comment = ParseJsonString(json, "comment");
-   
+
    string display_msg = "AI: " + action + " (" + comment + ")";
    ObjectSetString(0, "MsgLabel", OBJPROP_TEXT, display_msg);
+
+   // v7.0: Update regime label
+   string regime = ParseJsonString(json, "regime");
+   if(regime != "")
+   {
+      ObjectSetString(0, RegimeLabel, OBJPROP_TEXT, "Regime: " + regime);
+      if(regime == "TRENDING")
+         ObjectSetInteger(0, RegimeLabel, OBJPROP_COLOR, C'46,204,113');  // green
+      else if(regime == "RANGING")
+         ObjectSetInteger(0, RegimeLabel, OBJPROP_COLOR, C'241,196,15');  // yellow
+      else if(regime == "VOLATILE")
+         ObjectSetInteger(0, RegimeLabel, OBJPROP_COLOR, C'231,76,60');   // red
+      else
+         ObjectSetInteger(0, RegimeLabel, OBJPROP_COLOR, clrWhite);
+   }
+   else
+   {
+      ObjectSetString(0, RegimeLabel, OBJPROP_TEXT, "Regime: ---");
+      ObjectSetInteger(0, RegimeLabel, OBJPROP_COLOR, clrWhite);
+   }
+
+   // v7.0: Update news label
+   string news_status = ParseJsonString(json, "news_status");
+   if(news_status != "")
+   {
+      ObjectSetString(0, NewsLabel, OBJPROP_TEXT, "News: " + news_status);
+      ObjectSetInteger(0, NewsLabel, OBJPROP_COLOR, C'231,76,60');  // red
+   }
+   else
+   {
+      ObjectSetString(0, NewsLabel, OBJPROP_TEXT, "News: Clear");
+      ObjectSetInteger(0, NewsLabel, OBJPROP_COLOR, C'46,204,113');  // green
+   }
+
    ChartRedraw();
 
    double server_sl = ParseJsonDouble(json, "sl"); 
@@ -778,6 +832,9 @@ void ReportTradeResult(string symbol, bool is_loss)
 //+------------------------------------------------------------------+
 void CheckAIExitSignals()
 {
+   // v7.0: Clean up tracked positions that no longer exist
+   CleanupTrackedPositions();
+
    // 保有ポジションをループ
    for(int i = PositionsTotal() - 1; i >= 0; i--)
    {
@@ -799,9 +856,38 @@ void CheckAIExitSignals()
 
       string type_str = (pos_type == POSITION_TYPE_BUY) ? "BUY" : "SELL";
 
-      // JSONリクエスト作成
+      // v7.0: Look up / create tracked entry
+      int idx = FindTrackedIndex(ticket);
+      if(idx < 0)
+      {
+         AddTrackedPosition(ticket);
+         idx = FindTrackedIndex(ticket);
+      }
+      double max_profit_seen = 0.0;
+      bool   partial_closed  = false;
+      if(idx >= 0)
+      {
+         max_profit_seen = tracked_max_profit[idx];
+         partial_closed  = tracked_partial_closed[idx];
+      }
+
+      // v7.0: Collect 30 close prices for ATR calculation
+      double close_prices[];
+      int copied = CopyClose(symbol, PERIOD_CURRENT, 0, 30, close_prices);
+      string prices_json = "[";
+      if(copied > 0)
+      {
+         for(int p = 0; p < copied; p++)
+         {
+            prices_json += DoubleToString(close_prices[p], 5);
+            if(p < copied - 1) prices_json += ",";
+         }
+      }
+      prices_json += "]";
+
+      // v7.0: JSONリクエスト（max_profit_seen, partial_closed, prices追加）
       string json_request = StringFormat(
-         "{\"account_id\": %s, \"ticket\": %d, \"symbol\": \"%s\", \"position_type\": \"%s\", \"open_price\": %.5f, \"current_price\": %.5f, \"profit\": %.2f, \"volume\": %.2f, \"open_time\": %d, \"sl\": %.5f, \"tp\": %.5f}",
+         "{\"account_id\": %s, \"ticket\": %d, \"symbol\": \"%s\", \"position_type\": \"%s\", \"open_price\": %.5f, \"current_price\": %.5f, \"profit\": %.2f, \"volume\": %.2f, \"open_time\": %d, \"sl\": %.5f, \"tp\": %.5f, \"max_profit_seen\": %.2f, \"partial_closed\": %s, \"prices\": %s}",
          IntegerToString(AccountInfoInteger(ACCOUNT_LOGIN)),
          ticket,
          symbol,
@@ -812,7 +898,10 @@ void CheckAIExitSignals()
          volume,
          (long)open_time,
          sl,
-         tp
+         tp,
+         max_profit_seen,
+         partial_closed ? "true" : "false",
+         prices_json
       );
 
       char post_data[];
@@ -839,12 +928,48 @@ void CheckAIExitSignals()
             if(ClosePositionByTicket(ticket))
             {
                Print("✅ Position #", ticket, " closed by AI decision");
+               RemoveTrackedPosition(ticket);
             }
             else
             {
                Print("❌ Failed to close position #", ticket);
             }
          }
+         else if(action == "MODIFY_SL")
+         {
+            double new_sl = ParseJsonDouble(response, "new_sl");
+            if(new_sl > 0)
+            {
+               // Select the position to read current TP
+               if(PositionSelectByTicket(ticket))
+               {
+                  ModifySL(ticket, new_sl);
+                  Print("✅ SL modified to ", new_sl, " for #", ticket);
+               }
+            }
+         }
+         else if(action == "PARTIAL_CLOSE")
+         {
+            double partial_ratio = ParseJsonDouble(response, "partial_ratio");
+            if(partial_ratio > 0 && partial_ratio < 1.0)
+            {
+               if(PartialCloseByTicket(ticket, partial_ratio))
+               {
+                  Print("✅ Partial close (", partial_ratio * 100, "%) for #", ticket);
+                  // Mark as partially closed
+                  if(idx >= 0)
+                     tracked_partial_closed[idx] = true;
+               }
+               else
+               {
+                  Print("❌ Failed partial close for #", ticket);
+               }
+            }
+         }
+
+         // v7.0: Update max_profit_seen
+         if(idx >= 0 && profit > tracked_max_profit[idx])
+            tracked_max_profit[idx] = profit;
       }
       else
       {
@@ -897,5 +1022,130 @@ bool ClosePositionByTicket(ulong ticket)
    {
       Print("Close Position Error: ", GetLastError(), " | RetCode: ", result.retcode);
       return false;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| v7.0: 分割決済                                                     |
+//+------------------------------------------------------------------+
+bool PartialCloseByTicket(ulong ticket, double ratio)
+{
+   if(!PositionSelectByTicket(ticket))
+   {
+      Print("Error: Cannot select position #", ticket, " for partial close");
+      return false;
+   }
+
+   double total_volume = PositionGetDouble(POSITION_VOLUME);
+   double min_lot = SymbolInfoDouble(PositionGetString(POSITION_SYMBOL), SYMBOL_VOLUME_MIN);
+   double step_lot = SymbolInfoDouble(PositionGetString(POSITION_SYMBOL), SYMBOL_VOLUME_STEP);
+
+   double close_volume = total_volume * ratio;
+
+   // Round to broker's volume step
+   close_volume = min_lot + MathFloor((close_volume - min_lot) / step_lot) * step_lot;
+
+   // If close_volume < min_lot → close entire position
+   if(close_volume < min_lot)
+      close_volume = total_volume;
+
+   // If remaining < min_lot → close entire position
+   double remaining = total_volume - close_volume;
+   if(remaining > 0 && remaining < min_lot)
+      close_volume = total_volume;
+
+   MqlTradeRequest request;
+   MqlTradeResult  result;
+   ZeroMemory(request);
+   ZeroMemory(result);
+
+   request.action   = TRADE_ACTION_DEAL;
+   request.position = ticket;
+   request.symbol   = PositionGetString(POSITION_SYMBOL);
+   request.volume   = close_volume;
+   request.deviation= 50;
+   request.type_filling = GetFillingMode();
+
+   long type = PositionGetInteger(POSITION_TYPE);
+   if(type == POSITION_TYPE_BUY)
+   {
+      request.type  = ORDER_TYPE_SELL;
+      request.price = SymbolInfoDouble(request.symbol, SYMBOL_BID);
+   }
+   else
+   {
+      request.type  = ORDER_TYPE_BUY;
+      request.price = SymbolInfoDouble(request.symbol, SYMBOL_ASK);
+   }
+
+   if(OrderSend(request, result))
+   {
+      Print("Partial Close OK: #", ticket, " | Closed: ", close_volume, " / ", total_volume);
+      return true;
+   }
+   else
+   {
+      Print("Partial Close Error: ", GetLastError(), " | RetCode: ", result.retcode);
+      return false;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| v7.0: Position tracking helper functions                          |
+//+------------------------------------------------------------------+
+int FindTrackedIndex(ulong ticket)
+{
+   for(int i = 0; i < tracked_count; i++)
+   {
+      if(tracked_tickets[i] == ticket)
+         return i;
+   }
+   return -1;
+}
+
+void AddTrackedPosition(ulong ticket)
+{
+   if(tracked_count >= MAX_TRACKED_POSITIONS)
+   {
+      Print("⚠️ Tracked positions full, cannot add #", ticket);
+      return;
+   }
+   tracked_tickets[tracked_count]        = ticket;
+   tracked_max_profit[tracked_count]     = 0.0;
+   tracked_partial_closed[tracked_count] = false;
+   tracked_count++;
+}
+
+void RemoveTrackedPosition(ulong ticket)
+{
+   int idx = FindTrackedIndex(ticket);
+   if(idx < 0) return;
+
+   // Shift remaining entries down
+   for(int i = idx; i < tracked_count - 1; i++)
+   {
+      tracked_tickets[i]        = tracked_tickets[i + 1];
+      tracked_max_profit[i]     = tracked_max_profit[i + 1];
+      tracked_partial_closed[i] = tracked_partial_closed[i + 1];
+   }
+   tracked_count--;
+}
+
+void CleanupTrackedPositions()
+{
+   // Remove entries for positions that no longer exist
+   for(int i = tracked_count - 1; i >= 0; i--)
+   {
+      if(!PositionSelectByTicket(tracked_tickets[i]))
+      {
+         // Position no longer exists, remove from tracking
+         for(int j = i; j < tracked_count - 1; j++)
+         {
+            tracked_tickets[j]        = tracked_tickets[j + 1];
+            tracked_max_profit[j]     = tracked_max_profit[j + 1];
+            tracked_partial_closed[j] = tracked_partial_closed[j + 1];
+         }
+         tracked_count--;
+      }
    }
 }

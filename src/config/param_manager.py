@@ -25,6 +25,12 @@ PARAM_LIMITS = {
     "rsi_sell_min": {"min": 15, "max": 40, "type": "int"},
     "tp_mult": {"min": 1.0, "max": 4.0, "type": "float"},
     "sl_mult": {"min": 0.8, "max": 3.0, "type": "float"},
+    # Multi-timeframe parameters
+    "h4_adx_min": {"min": 5, "max": 25, "type": "int"},
+    # Adaptive exit parameters
+    "trail_activation_atr": {"min": 0.5, "max": 2.0, "type": "float"},
+    "trail_distance_mult": {"min": 0.5, "max": 3.0, "type": "float"},
+    "max_bars_in_trade": {"min": 10, "max": 200, "type": "int"},
 }
 
 # Default parameters (same as current system)
